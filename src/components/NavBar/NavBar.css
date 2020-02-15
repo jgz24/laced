@@ -1,0 +1,35 @@
+ul {
+    margin: 0;
+    padding: 0;
+    height: auto;
+    list-style-type: none;
+    overflow: hidden;
+    background-color:darkslategrey;
+}
+
+li {
+    width: 80px;
+    float: left;
+}
+
+input {
+    margin: 10px 0px 0px 400px;
+    padding: 15px;
+    width: 800px;
+    font-size: 20px;
+}
+
+a {
+    
+}
+
+.logo {
+    margin: 10px;
+    width: 55px;
+}
+
+.searchLogo {
+    margin: 10px 0px 0px 1105px;
+    width: 19px;
+    background-color: darkgoldenrod;
+}
