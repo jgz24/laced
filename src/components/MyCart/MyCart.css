@@ -1,0 +1,12 @@
+.myCart {
+    margin-right: 100px;
+    font-size: 25px;
+    color: white;
+    background-color: #232f3e;
+    text-decoration-line: none;
+    transition: all 0.3s ease 0s;
+}
+
+.myCart:hover {
+    color: #febd69;
+}
