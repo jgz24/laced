@@ -1,0 +1,53 @@
+.myCart {
+    padding-bottom: 1px;
+    font-size: 1.5rem;
+    color: white;
+    background-color: #232f3e;
+    text-decoration-line: none;
+    transition: all 0.3s ease 0s;
+}
+
+.myCart:hover {
+    color: #febd69;
+}
+
+@media screen and (max-width: 650px) {
+    .myCart {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .myCart{
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .myCart {
+        font-size: .9rem;
+        padding-top: 2px;
+    }
+}
+
+@media screen and (max-width: 415px) {
+    .myCart {
+        font-size: .6rem;
+        padding-top: 6px;
+        padding-bottom: 2px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .myCart {
+        font-size: .8rem;
+        padding-top: 3px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .myCart {
+        font-size: .8rem;
+        padding-top: 3px;
+    }
+}

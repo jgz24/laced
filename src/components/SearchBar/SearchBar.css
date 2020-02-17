@@ -1,8 +1,8 @@
 .searchBar {
-    width: 650px;
-    height: 40px;
+    padding: .6rem;
+    width: 35rem;
     border: none;
-    text-align: center;
+    text-align: left;
     font-size: 20px;
 }
 
@@ -11,10 +11,8 @@
 }
 
 .searchButton {
-    top: 30px;
-    padding: 20px;
-    width: 40px;
-    height: 40px;
+    width: 2.6rem;
+    height: 2.6rem;
     border: none;
     position: absolute;
     background-size: cover;
@@ -25,4 +23,97 @@
 .searchButton:focus {
     outline: rgb(255, 136, 0);
     background-color: rgb(255,136,0);
+}
+
+@media screen and (max-width: 1200px) {
+    .searchBar {
+        width: 35rem;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .searchBar {
+        padding: .5rem;
+        width: 30rem;
+    }
+    .searchButton {
+        width: 2.45rem;
+        height: 2.45rem;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .searchBar {
+        padding: .4rem;
+        width: 20rem;
+    }
+    .searchButton {
+        width: 2.25rem;
+        height: 2.25rem;
+    }
+
+}
+
+@media screen and (max-width: 750px) {
+    .searchBar {
+        padding: .2rem;
+        width: 15rem;
+    }
+    .searchButton {
+        width: 1.85rem;
+        height: 1.85rem;
+    }
+}
+
+
+@media screen and (max-width: 650px) {
+    .searchBar {
+        padding: .15rem;
+        width: 15rem;
+    }
+    .searchButton {
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .searchButton {
+        width: 1.7rem;
+        height: 1.7rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .searchBar {
+        padding: .13rem;
+        width: 12rem;
+    }
+    .searchButton {
+        width: 1.7rem;
+        height: 1.7rem;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .searchBar {
+        padding: .1rem;
+        width: 10rem;
+    }
+    .searchButton {
+        width: 1.65rem;
+        height: 1.65rem;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .searchBar {
+        padding: .05rem;
+        width: 8rem;
+        font-size: 15px;
+    }
+    .searchButton {
+        width: 1.2rem;
+        height: 1.2rem;
+    }
 }

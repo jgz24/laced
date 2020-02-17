@@ -1,14 +1,23 @@
 import React from "react";
 import "./NavBar.css";
-import SearchBar from "../SearchBar/SearchBar";
-import "../SearchBar/SearchBar.css";
-import MyCart from "../MyCart/MyCart";
-import "../MyCart/MyCart.css"
+import SearchBar from "../searchbar/SearchBar";
+import Cart from "../mycart/Cart";
 
 export default function NavBar() { 
-    return <nav>
-        <button className="logo"></button>
-        <SearchBar />
-        <MyCart />
-    </nav>
+    return (
+    <div>
+        <nav>
+            <div>
+                <button className="logo"></button>
+            </div>
+            <div>
+                <SearchBar />
+            </div>
+            <div>
+                <Cart />
+            </div>       
+        </nav>
+    </div>
+    );
 }
+
