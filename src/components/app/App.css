@@ -1,4 +1,5 @@
 .lineBreak {
-    margin-top: 3rem;
-    color: gray;
+    border-bottom: 1px solid rgb(206, 197, 197);
+    background-color: whitesmoke;
+    padding-bottom: 2rem;
 }

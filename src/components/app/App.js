@@ -7,12 +7,8 @@ export default function App() {
   return (
     <React.Fragment>
       <NavBar />
-      <div>
-        <hr className="lineBreak"></hr>
-      </div>
-      <div>
-        <Results />
-      </div>
+      <div className="lineBreak"></div>
+      <Results />
     </React.Fragment>
   );
 }

@@ -1,0 +1,25 @@
+.filterCategories {
+    display: inline-block;
+} 
+
+.category {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 18px;
+}
+
+.category:hover {
+    text-decoration: underline;
+}
+
+.sortByCategory {
+    padding-left: 35%;
+} 
+
+.dropDownLogo {
+    margin: 0rem 2rem 0rem .2rem;
+    background-image: url("./dropDownLogo.png");
+    border: none;
+    background-size: cover;
+    width: 11px;
+    height: 11px;
+}

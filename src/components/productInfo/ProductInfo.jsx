@@ -6,9 +6,11 @@ export default function ProductType() {
     const [productQuantity,setProductQuantity] = useState(0);
 
     return (
-        <div>
-            <div><p className="productInfo">{productType}</p></div>
-            <div><p className="productQuantity">{`(${productQuantity}) Products`}</p></div>
+        <div className="container">
+            <div className="row">
+                <p className="productInfo">{productType}</p>
+                <div><p className="productQuantity">{`(${productQuantity} Products)`}</p></div>
+            </div>
         </div>
     );
 }
