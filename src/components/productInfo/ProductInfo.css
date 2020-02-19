@@ -9,6 +9,7 @@
 }
 
 .productInfo {
+    margin: .5rem 0rem 0rem 0rem;
     font-size: 2rem;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: 400;
@@ -16,7 +17,7 @@
 }
 
 .productQuantity {
-    margin: .8rem 0rem 0rem 1rem;
+    margin: 1.3rem 0rem 0rem 1rem;
     font-size: 1rem;
     color: gray;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;

@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import "./Filters.css"
 import Filter from "../filter/Filter";
 
 function Filters() {
@@ -24,7 +23,6 @@ function Filters() {
 
     return (
         <div className="container"> 
-            <p className="filters">Filters</p>
             <Filter data={genders} type={"Gender"} />
             <Filter data={activities} type={"Activity"} />
             <Filter data={brands} type={"Brand"} />
