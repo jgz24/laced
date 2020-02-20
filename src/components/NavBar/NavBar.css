@@ -9,12 +9,13 @@ nav {
 
 .logo {
     padding-bottom: .3rem;
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     background-size: cover;
     border: none;
     background-image: url('./logo.jpg');
     background-color: #232f3e;
+    cursor: pointer;
 }
 
 .logo:focus {

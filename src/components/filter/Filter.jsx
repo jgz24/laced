@@ -10,14 +10,11 @@ function Filter(props) {
 
     return (
         <React.Fragment>
-            <div className={"filterCategories " + filterCategory}>
-                <p className="filterCategories category" href="/">{props.type}</p>
+            <div>
+                <button className={"category" + filterCategory}>{props.type}</button>
                 <button className="dropDownLogo" onClick='/'></button>
             </div>
         </React.Fragment>
-        // <select>
-        //     {props.data.map(option => <option value={option}>{option}</option> )}
-        // </select>
     );
 }
 

@@ -1,5 +1,7 @@
 import React, {useState} from "react";
+import "./Filters.css"
 import Filter from "../filter/Filter";
+import FilterDropDown from "../filterdropdown/FilterDropDown";
 
 function Filters() {
     const genders = ["Men","Women"]
@@ -22,17 +24,30 @@ function Filters() {
     const [sortBy,setSortBy] = useState("");
 
     return (
-        <div className="container"> 
-            <Filter data={genders} type={"Gender"} />
-            <Filter data={activities} type={"Activity"} />
-            <Filter data={brands} type={"Brand"} />
-            <Filter data={sports} type={"Sport"} />
-            <Filter data={sizesMen} type={"Men Sizes"} />
-            <Filter data={sizesWomen} type={"Women Sizes"} />
-            <Filter data={colors} type={"Color"} />
-            <Filter data={prices} type={"Price"} />
-            <Filter data={sortBys} type={"Sort By"} /> 
-        </div>
+        <React.Fragment>
+            <div className="container filterFlex"> 
+                <Filter type={"Gender"} />
+                <Filter type={"Activity"} />
+                <Filter type={"Brand"} />
+                <Filter type={"Sport"} />
+                <Filter type={"Men Sizes"} />
+                <Filter type={"Women Sizes"} />
+                <Filter type={"Color"} />
+                <Filter type={"Price"} />
+                <Filter type={"Sort By"} /> 
+            </div>
+            <div className="container filterFlex">
+                <FilterDropDown data={genders} />
+                <FilterDropDown data={activities} />
+                <FilterDropDown data={brands} />
+                <FilterDropDown data={sports} />
+                <FilterDropDown data={sizesMen} />
+                <FilterDropDown data={sizesWomen} />
+                <FilterDropDown data={colors} />
+                <FilterDropDown data={prices} />
+                <FilterDropDown data={sortBys} /> 
+            </div>
+        </React.Fragment>
     );  
 }
 

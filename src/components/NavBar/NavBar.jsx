@@ -8,7 +8,7 @@ export default function NavBar() {
     <div>
         <nav>
             <div>
-                <button className="logo"></button>
+                <button className="logo"><a href="/"></a></button>
             </div>
             <div>
                 <SearchBar />
