@@ -1,6 +1,6 @@
 import React from "react";
 import "./Results.css"
-import ProductInfo from "../productInfo/ProductInfo";
+import ProductInfo from "../product-info/ProductInfo";
 import Filters from "../filters/Filters";
 
 export default function Results() {

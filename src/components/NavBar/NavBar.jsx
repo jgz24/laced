@@ -1,7 +1,7 @@
 import React from "react";
 import "./NavBar.css";
-import SearchBar from "../searchbar/SearchBar";
-import Cart from "../mycart/Cart";
+import SearchBar from "../search-bar/SearchBar";
+import Cart from "../cart/Cart";
 
 export default function NavBar() { 
     return (

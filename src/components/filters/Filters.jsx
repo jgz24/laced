@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import "./Filters.css"
 import Filter from "../filter/Filter";
-import FilterDropDown from "../filterdropdown/FilterDropDown";
+import FilterDropDown from "../filter-drop-down/FilterDropDown";
 
 function Filters() {
     const genders = ["Men","Women"]
