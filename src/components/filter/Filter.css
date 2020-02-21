@@ -1,21 +1,31 @@
 .category {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 18px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
-.category:hover {
-    text-decoration: underline;
+.category:hover, .category:focus {
+    outline: 1px solid black;
 }
 
-.sortByCategory {
-    padding-left: 35%;
-} 
+.test button:focus + form, .test button:focus + button + form {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0px);
+}
 
 .dropDownLogo {
-    margin: 0rem 2rem 0rem .2rem;
+    margin: 0rem .1rem 0rem .1rem;
     background-image: url("./dropDownLogo.png");
     border: none;
     background-size: cover;
-    width: 11px;
-    height: 11px;
+    width: 10px;
+    height: 10px;
+}
+
+.dropDownLogo:focus, .dropDownLogo:hover {
+    outline: 1px solid black;
 }

@@ -1,18 +1,14 @@
 import React from "react";
 import "./Filter.css";
+import FilterDropDown from "../filter-drop-down/FilterDropDown";
 
 function Filter(props) {
-    let filterCategory = "";
-
-    if (props.type === "Sort By") {
-        filterCategory = "sortByCategory";
-    }
-
     return (
         <React.Fragment>
-            <div>
-                <button className={"category" + filterCategory}>{props.type}</button>
+            <div className="test">
+                <button className="category">{props.type}</button>
                 <button className="dropDownLogo" onClick='/'></button>
+                <FilterDropDown data={props.data} />
             </div>
         </React.Fragment>
     );
