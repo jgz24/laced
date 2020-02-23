@@ -4,3 +4,13 @@
     width: 50%;
     position: relative;
 }
+
+.filter button:focus + form, .filter button:focus + button + form {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0px);
+}
+
+.filter:hover {
+    outline: 2px solid black;
+}

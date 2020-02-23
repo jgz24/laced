@@ -12,7 +12,7 @@
     transition: all .4s ease;
 }
 
-.filterFlexColumn:hover {
+.filterFlexColumn:hover, .filterFlexColumn:focus {
     opacity: 1;
     pointer-events: all;
     transform: translateY(0px);
@@ -31,7 +31,7 @@ input[type="checkbox"]:checked {
 }
 
 .categoryLabel {
-    padding: 5px 0px 5px 5px;
+    padding-left: .2rem;
     font-family: sans-serif;
     font-size: 18px;
     margin-top: 10px;
