@@ -18,7 +18,7 @@ export default function Results() {
             White: false,
             Red: false,
             Blue: false,
-            Gray: false,
+            Grey: false,
             Green: false,
             Orange: false
         },
@@ -51,9 +51,9 @@ export default function Results() {
             "$150-$200": false,
             "$200+" : false
         },
-        Sort: {
-            "Price(Low-High)": false,
-            "Price(High-Low)": false
+        "Sort By": {
+            "Low-High": false,
+            "High-Low": false
         }
     });
 
@@ -61,18 +61,17 @@ export default function Results() {
     // option selected at any given time.
     const handleMultipleChecks = (tempCheckedFilters, category, filterOption) => {
         if (category === 'Gender' || category === 'Activity' || category === 'Brand' 
-            || category === 'Sport' || category === 'Price' || category === 'Sort') {
+            || category === 'Sport' || category === 'Price' || category === 'Sort By') {
                 let filterArray = Object.values(tempCheckedFilters[category]);
-                let trueCount = 0;
 
                 // Count the number of "true" values.
-                filterArray.map(bool => bool === true ? trueCount=trueCount+1 : trueCount);
+                let trueCountArray = filterArray.filter(bool => bool === true);
 
                 // If there's a "true" value already and the recently selected
                 // filter is false, then we know that another value
                 // is already selected so we want to set that value to false
                 // and set the recently selected filter to true.
-                if(trueCount === 1 && tempCheckedFilters[category][filterOption] === false) {
+                if(trueCountArray.length === 1 && tempCheckedFilters[category][filterOption] === false) {
                     let categoryOptions = Object.keys(tempCheckedFilters[category]);
                     //Set all filter values to false
                     categoryOptions.map(filter => tempCheckedFilters[category][filter] = false);
@@ -81,8 +80,10 @@ export default function Results() {
                 }
         }
         return tempCheckedFilters;
-    };
+    }; 
 
+    // Handles the case where the user clicks a filter option
+    // from the drop down.
     const handleCheckedChange = (category, filterOption, isChecked) => {
         // Create a deep copy of the checkedFilters object
         let tempCheckedFilters = JSON.parse(JSON.stringify(checkedFilters));
@@ -95,14 +96,25 @@ export default function Results() {
         setCheckedFilters(tempCheckedFilters);
     };
 
+    // Handles the case where user clicks an active filter
+    // meaning it should be set to false.
+    const handleActiveFilterClick = (category, filterOption) => {
+        // Create a deep copy of the checkedFilters object
+        let tempCheckedFilters = JSON.parse(JSON.stringify(checkedFilters));
+
+        // Change the value of the filter to be false
+        tempCheckedFilters[category][filterOption] = false;
+
+        setCheckedFilters(tempCheckedFilters);
+    }
+
     console.log("zz",checkedFilters);
 
     return (
         <React.Fragment>
             <ProductInfo filters={checkedFilters} />
             <div className="container lineBreak-products"></div>
-            <Filters filters={checkedFilters} handleCheckedChange={handleCheckedChange} />
-            <div className="container lineBreak-products"></div>
+            <Filters filters={checkedFilters} handleCheckedChange={handleCheckedChange} handleActiveFilterClick={handleActiveFilterClick} />
         </React.Fragment>
     );
 }

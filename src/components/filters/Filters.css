@@ -1,7 +1,7 @@
 .filterFlex {
     display: flex;
     justify-content: space-between;
-    width: 50%;
+    width: 45%;
     position: relative;
 }
 
@@ -13,4 +13,9 @@
 
 .filter:hover {
     outline: 2px solid black;
+}
+
+.filterFlexActiveFilters {
+    display: flex;
+    width: 60%;
 }
