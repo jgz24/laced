@@ -3,14 +3,14 @@ import "./Filters.css"
 import Filter from "../filter/Filter";
 import FilterDropDown from "../filter-drop-down/FilterDropDown";
 
-export default function Filters({filters}) {
+export default function Filters({ filters, handleCheckedChange}) {
     return ( 
         <div className="container">
             <div className="filterFlex">
-                {filters.map(filter => 
-                <div className="filter">
-                    <Filter key={filter.category} type={filter.category} />
-                    <FilterDropDown key={filter.category} options={filter.options} />
+                {Object.keys(filters).map((filter,idx) => 
+                <div key={idx} className="filter">
+                    <Filter category={filter} />
+                    <FilterDropDown category={filter} checkedFilter={filters[filter]} handleCheckedChange={handleCheckedChange}/>
                 </div>
                 )}
             </div>

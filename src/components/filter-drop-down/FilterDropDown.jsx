@@ -1,32 +1,17 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import "./FilterDropDown.css";
+import DropDownLabel from "../drop-down-label/DropDownLabel";
 
-export default function FilterDropDown({options}) {
-    const [checked,setChecked] = useState({});
-
-    useEffect(() => {
-        let initialChecked = {};
-
-        options.map(option => initialChecked[option] = false);
-
-        setChecked(initialChecked);
-    }, [options]);
-
-    const handleChange = (event) => {
-        console.log("1st", checked);
-        console.log([event.target.name]);
-        console.log(event.target.checked);
-        setChecked({...checked, [event.target.name] : event.target.checked});
-        console.log("checked: ", checked);
-    }
+export default function FilterDropDown({checkedFilter, category, handleCheckedChange}) {
+    let checkedFilters = Object.entries(checkedFilter);
 
     return (
+        <React.Fragment>
             <form className="filterFlexColumn">
-                {Object.keys(checked).map(option =>
-                    <label key={option} className="categoryLabel">
-                        <input name={option} onChange={handleChange} type="checkbox" checked={checked[option]}/>
-                    </label>
-                )}
+            {checkedFilters.map((option,idx) =>
+                <DropDownLabel key={idx} category={category} option={option[0]} handleCheckedChange={handleCheckedChange} checked={option[1]}/>
+            )}
             </form>
+        </React.Fragment>
     );
 }
