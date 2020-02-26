@@ -1,9 +1,10 @@
 import React, {useState} from "react";
 import "./Results.css"
-import ProductInfo from "../product-info/ProductInfo";
+import ProductInfoHeader from "../product-info-header/ProductInfoHeader";
 import Filters from "../filters/Filters";
+import Products from "../products/Products";
 
-export default function Results() {
+export default function Results({products}) {
     const [checkedFilters,setCheckedFilters] = useState({
         Gender : {
             Men : false,
@@ -25,7 +26,8 @@ export default function Results() {
         Brand: {
             Nike: false,
             Adidas: false,
-            Vans: false
+            Vans: false,
+            Converse: false
         },
         Sport: {
             Basketball: false,
@@ -112,9 +114,10 @@ export default function Results() {
 
     return (
         <React.Fragment>
-            <ProductInfo filters={checkedFilters} />
-            <div className="container lineBreak-products"></div>
+            <div className="lineBreak"></div>
+            <ProductInfoHeader products={products} filters={checkedFilters} />
             <Filters filters={checkedFilters} handleCheckedChange={handleCheckedChange} handleActiveFilterClick={handleActiveFilterClick} />
+            <Products products={products}/>
         </React.Fragment>
     );
 }

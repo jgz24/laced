@@ -30,4 +30,6 @@
 .activeFilters {
     border: 1px solid gray;
     background-color: whitesmoke;
+    margin-right: .3rem;
+    padding-right: .2rem;
 }

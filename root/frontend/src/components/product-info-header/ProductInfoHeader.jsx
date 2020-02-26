@@ -1,9 +1,13 @@
 import React, {useState, useEffect} from "react";
-import "./ProductInfo.css";
+import "./ProductInfoHeader.css";
 
-export default function ProductType({filters}) {
+export default function ProductType({filters,products}) {
     const [productTypeHeader,setProductTypeHeader] = useState("");
     const [productQuantity,setProductQuantity] = useState(0);
+
+    useEffect(() => {
+        setProductQuantity(products.length);
+    },[productQuantity]);
 
     useEffect(() => {
         let filterKeys = Object.keys(filters);
@@ -48,11 +52,14 @@ export default function ProductType({filters}) {
     },[filters]);
 
     return (
-        <div className="container">
-            <div className="row">
-                <p className="productInfo">{productTypeHeader}</p>
-                <div><p className="productQuantity">{`(${productQuantity} Products)`}</p></div>
+        <React.Fragment>
+            <div className="container">
+                <div className="row">
+                    <p className="productInfo">{productTypeHeader}</p>
+                    <div><p className="productQuantity">{`(${productQuantity} Products)`}</p></div>
+                </div>
             </div>
-        </div>
+            <div className="container lineBreak-products"></div>
+        </React.Fragment>
     );
 }
