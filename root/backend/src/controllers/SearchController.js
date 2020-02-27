@@ -3,10 +3,15 @@ const Shoe = require("../models/ShoeModel");
 const getShoes = async (req, res) => {
   let searchTerm = req.params.searchTerm;
 
-  // Match search term format to upper case first letter,
-  // lower case rest of letters.
-  searchTerm =
-    searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1).toLowerCase();
+  // Need this for user inputs that are more
+  // than one word.
+  searchTerm = searchTerm.split(" ");
+
+  // Make each word have an uppercase first letter
+  // and the remaining letters be lowercase.
+  searchTerm = searchTerm.map(
+    string => string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
+  );
 
   try {
     const getShoe = await Shoe.find({
