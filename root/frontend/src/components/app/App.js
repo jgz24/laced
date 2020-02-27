@@ -9,21 +9,40 @@ export default function App() {
   const [allProducts, setAllProducts] = useState({});
 
   // Get all shoes on initial site visit
-  useEffect(() => {
-    fetch("http://localhost:8080/")
-      .then(res => res.json())
-      .then(json => {
-        setAllProducts(json);
+  useEffect(async () => {
+    try {
+      const res = await fetch("http://localhost:8080/", {
+        method: "GET"
       });
+      const result = await res.json();
+      setAllProducts(result);
+    } catch (err) {
+      console.log(err);
+    }
   }, []);
 
-  // Bypass initial render that sends in
-  // test = empty state object.
-  if (Object.keys(allProducts).length === 0) return null;
+  // Look for individual shoes via search bar.
+  // Takes in all filter options other than
+  // "Sort By"
+  const handleSearch = async searchTerm => {
+    let url =
+      searchTerm.length > 0
+        ? `http://localhost:8080/search/${searchTerm}`
+        : "http://localhost:8080/";
+    try {
+      const res = await fetch(url, {
+        method: "GET"
+      });
+      const result = await res.json();
+      setAllProducts(result);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <React.Fragment>
-      <NavBar />
+      <NavBar handleSearch={handleSearch} />
       <Results products={allProducts} />
     </React.Fragment>
   );

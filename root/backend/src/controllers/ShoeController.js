@@ -1,15 +1,17 @@
 const Shoe = require("../models/ShoeModel");
 
 // Get all shoes from database
-const getAllShoes = (req, res) => {
-  Shoe.find({}, (err, shoes) => {
-    if (err) res.send(err);
+const getAllShoes = async (req, res) => {
+  try {
+    const shoes = await Shoe.find({});
     res.json(shoes);
-  });
+  } catch (err) {
+    res.json({ message: err });
+  }
 };
 
 // Post new shoe to database
-const addShoe = (req, res) => {
+const addShoe = async (req, res) => {
   let newShoe = new Shoe({
     Name: req.body.Name,
     Img: req.body.Img,
@@ -23,10 +25,12 @@ const addShoe = (req, res) => {
     Quantity: req.body.Quantity
   });
 
-  newShoe.save(err => {
-    if (err) res.send(err);
-    res.send(`Added shoe to database: ${newShoe}`);
-  });
+  try {
+    const savedShoe = await newShoe.save();
+    res.json(savedShoe);
+  } catch (err) {
+    res.json({ message: err });
+  }
 };
 
 module.exports = { getAllShoes, addShoe };

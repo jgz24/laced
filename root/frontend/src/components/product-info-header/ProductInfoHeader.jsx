@@ -7,7 +7,7 @@ export default function ProductType({filters,products}) {
 
     useEffect(() => {
         setProductQuantity(products.length);
-    },[productQuantity]);
+    },[products.length]);
 
     useEffect(() => {
         let filterKeys = Object.keys(filters);

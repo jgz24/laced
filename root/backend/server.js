@@ -6,6 +6,7 @@ require("dotenv/config");
 
 // Routes
 const shoeRoute = require("./src/routes/ShoeRoute");
+const searchRoute = require("./src/routes/SearchRoute");
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(cors());
 // Use routes
 app.use("/", shoeRoute);
 app.use("/post", shoeRoute);
+app.use("/search", searchRoute);
 
 // Connect to mongoDB
 mongoose.connect(

@@ -3,7 +3,7 @@ import "./NavBar.css";
 import SearchBar from "../search-bar/SearchBar";
 import Cart from "../cart/Cart";
 
-export default function NavBar() { 
+export default function NavBar({handleSearch}) { 
     return (
     <div>
         <nav>
@@ -11,7 +11,7 @@ export default function NavBar() {
                 <a href='/'><button className="logo"></button></a>
             </div>
             <div>
-                <SearchBar />
+                <SearchBar handleSearch={handleSearch}/>
             </div>
             <div>
                 <Cart />

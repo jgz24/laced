@@ -3,13 +3,13 @@ const mongoose = require("mongoose");
 const ShoeSchema = new mongoose.Schema({
   Name: String,
   Img: String,
-  Gender: [],
-  Activity: [],
-  Color: [],
+  Gender: [String],
+  Activity: [String],
+  Color: [String],
   Brand: String,
   Sport: String,
-  Size: [],
-  Price: Number,
+  Size: [String],
+  Price: String,
   Quantity: Number
 });
 

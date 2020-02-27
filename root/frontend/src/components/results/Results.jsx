@@ -1,10 +1,21 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import "./Results.css"
 import ProductInfoHeader from "../product-info-header/ProductInfoHeader";
 import Filters from "../filters/Filters";
 import Products from "../products/Products";
 
 export default function Results({products}) {
+    const [filteredProducts, setFilteredProducts] = useState(products);
+    const [activeFilters,setActiveFilters] = useState({
+        Gender : "",
+        Activity : "",
+        Color: new Set(),
+        Brand: "",
+        Sport: "",
+        Size: new Set(),
+        Price: "",
+        "Sort By": ""
+    });
     const [checkedFilters,setCheckedFilters] = useState({
         Gender : {
             Men : false,
@@ -59,6 +70,10 @@ export default function Results({products}) {
         }
     });
 
+    useEffect(() => {
+        setFilteredProducts(products);
+    },[products]);
+
     // This function handles filters that can only have one 
     // option selected at any given time.
     const handleMultipleChecks = (tempCheckedFilters, category, filterOption) => {
@@ -88,12 +103,33 @@ export default function Results({products}) {
     // from the drop down.
     const handleCheckedChange = (category, filterOption, isChecked) => {
         // Create a deep copy of the checkedFilters object
-        let tempCheckedFilters = JSON.parse(JSON.stringify(checkedFilters));
+        let tempCheckedFilters = {...checkedFilters};
 
         tempCheckedFilters = handleMultipleChecks(tempCheckedFilters,category,filterOption);
 
-        // Change the value of the filter to true
+        // Change the value of the filter to true or false
         tempCheckedFilters[category][filterOption] = isChecked;
+
+        // let test = {...activeFilters};
+
+        // if(isChecked) {
+        //     if(category === 'Color' || category === 'Size') {
+        //         test[category].add(filterOption);
+        //     }
+        //     else {
+        //         test[category] = filterOption;
+        //     }
+        // }
+        // else {
+        //     if(category === 'Color' || category === 'Size') {
+        //         test[category].delete(filterOption);
+        //     }
+        //     else {
+        //         test[category] = "";
+        //     }
+        // }
+
+        // setActiveFilters(test);
 
         setCheckedFilters(tempCheckedFilters);
     };
@@ -110,14 +146,15 @@ export default function Results({products}) {
         setCheckedFilters(tempCheckedFilters);
     }
 
-    console.log("zz",checkedFilters);
+    console.log("Active Filters",activeFilters);
+    console.log("Original Products", products);
 
     return (
         <React.Fragment>
             <div className="lineBreak"></div>
-            <ProductInfoHeader products={products} filters={checkedFilters} />
+            <ProductInfoHeader products={filteredProducts} filters={checkedFilters} />
             <Filters filters={checkedFilters} handleCheckedChange={handleCheckedChange} handleActiveFilterClick={handleActiveFilterClick} />
-            <Products products={products}/>
+            <Products products={filteredProducts}/>
         </React.Fragment>
     );
 }
