@@ -7,11 +7,12 @@ const getShoes = async (req, res) => {
   // than one word.
   searchTerm = searchTerm.split(" ");
 
-  // Make each word have an uppercase first letter
-  // and the remaining letters be lowercase.
-  searchTerm = searchTerm.map(
-    string => string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
-  );
+  // Search for only the first word
+  // Make the word have an uppercase first letter
+  // and its remaining letters be lower case.
+  searchTerm =
+    searchTerm[0].charAt(0).toUpperCase() +
+    searchTerm[0].slice(1).toLowerCase();
 
   try {
     const getShoe = await Shoe.find({

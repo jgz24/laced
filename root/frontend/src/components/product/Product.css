@@ -1,5 +1,4 @@
 .product {
-    margin: 1rem 0rem 1rem 0rem;
     display: flex;
     flex-direction: column;
 }
@@ -10,7 +9,7 @@
 
 .imageButton {
     border: none;
-    background: white;
+    background-color: gray;
 }
 
 .imageButton:focus {
@@ -41,3 +40,11 @@ p {
     outline: 0px solid white;
 }
 
+.animation-products-enter {
+    opacity: 0;
+}
+
+.animation-products-enter-active {
+    opacity: 1;
+    transition: opacity 300ms, transform 300ms;
+}

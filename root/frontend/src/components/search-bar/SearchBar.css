@@ -4,6 +4,7 @@
     border: none;
     text-align: left;
     font-size: 20px;
+    position: relative;
 }
 
 .searchBar:focus {
@@ -23,6 +24,23 @@
 .searchButton:focus {
     outline: rgb(255, 136, 0);
     background-color: rgb(255,136,0);
+}
+
+.suggestions {
+    position: absolute;
+    list-style: none;
+    border: 1px solid black;
+    width: 35rem;
+}
+
+.suggestions li {
+    font-weight: normal;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: .1rem 0rem .1rem 0rem;
+}
+
+.suggestions li:hover {
+    border: 1px solid black;
 }
 
 @media screen and (max-width: 1200px) {
