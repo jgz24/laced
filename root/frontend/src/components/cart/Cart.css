@@ -1,14 +1,26 @@
-.myCart {
-    padding-bottom: 1px;
-    font-size: 1.5rem;
-    color: white;
-    background-color: #232f3e;
-    text-decoration-line: none;
-    transition: all 0.3s ease 0s;
+.cartFlex {
+    display: flex;
 }
 
-.myCart:hover {
-    color: #febd69;
+.myCart {
+    background-image: url("./cartLogo.png");
+    height: 60px;
+    width: 60px;
+    background-size: cover;
+    border: none;
+    background-color: #232f3e;
+    cursor: pointer;
+    margin-top: .5rem;
+}
+
+.myCart:focus {
+    outline: #232f3e;
+}
+
+.cartFlex p {
+    background-color: #232f3e;
+    margin: 0;
+    font-size: 20px;
 }
 
 @media screen and (max-width: 650px) {

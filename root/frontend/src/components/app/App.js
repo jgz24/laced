@@ -3,12 +3,14 @@ import "./App.css";
 import NavBar from "../navbar/NavBar";
 import Results from "../results/Results";
 import ProductInfo from "../product-info/ProductInfo";
+import CheckOut from "../checkout/CheckOut";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 export default function App() {
   const [allProducts, setAllProducts] = useState({});
   const [searchString, setSearchString] = useState("");
+  const [cartItems, setCartItems] = useState([]);
 
   // Get all shoes on initial site visit
   useEffect(() => {
@@ -47,13 +49,18 @@ export default function App() {
     } catch (err) {
       console.log(err);
     }
-    //window.document.location = `http://localhost:3000/search=${searchTerm}`;
+  };
+
+  const handleAddToCart = product => {
+    let tempCartItems = [...cartItems];
+    tempCartItems.push(product);
+    setCartItems(tempCartItems);
   };
 
   return (
     <React.Fragment>
       <Router>
-        <NavBar handleSearch={handleSearch} />
+        <NavBar handleSearch={handleSearch} cartItems={cartItems} />
         <Switch>
           <Route
             path="/"
@@ -66,7 +73,17 @@ export default function App() {
               />
             )}
           ></Route>
-          <Route path="/:product" component={ProductInfo}></Route>
+          <Route
+            path="/checkout"
+            exact
+            render={props => <CheckOut {...props} cartItems={cartItems} />}
+          ></Route>
+          <Route
+            path="/:product"
+            render={props => (
+              <ProductInfo {...props} handleAddToCart={handleAddToCart} />
+            )}
+          ></Route>
         </Switch>
       </Router>
     </React.Fragment>

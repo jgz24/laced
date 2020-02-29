@@ -151,8 +151,7 @@ export default function Results({products, searchString}) {
 
     return (
         <React.Fragment>
-            <div className="lineBreak"></div>
-            <ProductInfoHeader products={filteredProducts} filters={checkedFilters} searchString={searchString}/>
+            <ProductInfoHeader products={filteredProducts} filters={checkedFilters} searchString={searchString} />
             <Filters filters={checkedFilters} handleCheckedChange={handleCheckedChange} handleActiveFilterClick={handleActiveFilterClick} />
             <Products products={filteredProducts}/>
         </React.Fragment>

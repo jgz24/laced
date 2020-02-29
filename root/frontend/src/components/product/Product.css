@@ -28,19 +28,6 @@ p {
     justify-content: space-between;
 }
 
-.addCartButton {
-    margin: .4rem 0rem .4rem 0rem;
-    padding: .5rem 0rem .5rem 0rem;
-    border-radius: 2rem;
-    background-color: #febd69;
-    cursor: pointer;
-}
-
-.addCartButton:active {
-    background-color: rgb(255,136,0);;
-    outline: rgb(255,136,0);
-}
-
 .animation-products-enter {
     opacity: 0;
 }

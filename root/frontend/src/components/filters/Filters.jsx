@@ -20,7 +20,6 @@ export default function Filters({ filters, handleCheckedChange, handleActiveFilt
 
     },[filters]);
 
-
     return ( 
         <React.Fragment>
         <div className="container">

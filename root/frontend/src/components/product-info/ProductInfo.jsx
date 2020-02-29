@@ -2,7 +2,7 @@ import React, {useState,useEffect} from "react";
 import "./ProductInfo.css";
 import {Link} from "react-router-dom";
 
-export default function ProductInfo({history, location}) {
+export default function ProductInfo({history, location, handleAddToCart}) {
     const {Name,Sport,Activity,Img,Color,Size,Quantity,Brand} = location.state;
     const [suggestedProducts,setSuggestedProducts] = useState([]);
 
@@ -31,8 +31,12 @@ export default function ProductInfo({history, location}) {
           .catch(err => console.log(err));
       }, [Name,Sport,Activity,Brand]);
 
+    const onAddCartClick = () => {
+        handleAddToCart(location.state);
+    }
+
     let suggested = <div className="similarProducts"> 
-                    {suggestedProducts.length > 0 && Sport !== "" ? <h2>Similar Products</h2> : <h2>{`Other ${Brand} Products`}</h2>}
+                    {suggestedProducts.length > 0 && Sport !== "" ? <h2>{`Other ${Sport} Products`}</h2> : <h2>{`Other ${Brand} Products`}</h2>}
                     {suggestedProducts.map((product,idx) => {
                         return (
                             <Link key={idx} to={{
@@ -58,11 +62,11 @@ export default function ProductInfo({history, location}) {
                     <div className="productInformation">
                         <h2>{Name}</h2>
                         <p>{`${Sport}` || `${Activity}`}</p>
-                        <p>{`$${location.state.Price}`}</p>
-                        <p>{`Color: ${Color}`}</p>
                         <p>{`Size: ${Size}`}</p>
+                        <p>{`Color: ${Color}`}</p>
                         <p>{`${Quantity} in stock!`}</p>
-                        <button>Add to Cart</button> 
+                        <p>{`$${location.state.Price}`}</p>
+                        <button className="addCartButton" onClick={onAddCartClick}></button> 
                     </div>
                 </div>
             </div>

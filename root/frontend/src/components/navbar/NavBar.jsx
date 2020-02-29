@@ -3,7 +3,7 @@ import "./NavBar.css";
 import SearchBar from "../search-bar/SearchBar";
 import Cart from "../cart/Cart";
 
-export default function NavBar({handleSearch}) { 
+export default function NavBar({handleSearch,cartItems}) { 
     let autocompleteArray = [
         'Shoes','Men Shoes', 'Women Shoes', 'Athletic Shoes', 'Casual Shoes', 'Nike', 'Nike Shoes',
         'Adidas', 'Adidas Shoes', 'Vans', 'Vans Shoes', 'Converse', 'Converse Shoes', 'Basketball',
@@ -17,12 +17,8 @@ export default function NavBar({handleSearch}) {
             <div>
                 <a href='/'><button className="logo"></button></a>
             </div>
-            <div>
-                <SearchBar handleSearch={handleSearch} autocompleteArray={autocompleteArray}/>
-            </div>
-            <div>
-                <Cart />
-            </div>       
+            <SearchBar handleSearch={handleSearch} autocompleteArray={autocompleteArray}/>
+            <Cart cartItems={cartItems} />    
         </nav>
     </div>
     );

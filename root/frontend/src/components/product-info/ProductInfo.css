@@ -13,6 +13,7 @@
     width: 1.1rem;
     height: 1.1rem;
     cursor: pointer;
+    background-color: white;
 }
 
 .goBackButton {
@@ -20,6 +21,7 @@
     font-size: 1.3rem;
     border: none;
     cursor: pointer;
+    background-color: white;
 }
 
 .goBackButtonLogo:focus {
@@ -31,7 +33,7 @@
 }
 
 img {
-    border: 1px solid gray;
+    border: 1px solid gainsboro;
 }
 
 .productImage {
@@ -52,26 +54,27 @@ img {
 }
 
 .productInformation {
-    padding-left: 1.5rem;
+    text-align: center;
+    width: 45%;
 }
 
 .productInformation p {
-    margin: 1rem 0rem 1rem 0rem;
+    margin-top: 1.2rem;
 }
 
-.productInformation button {
-    background-color: #febd69;
+.addCartButton{
+    background-image: url("./addCartButton.png");
+    height: 55px;
+    width: 55px;
+    background-size: cover;
+    background-color: white;
+    border: none;
     cursor: pointer;
-    border-radius: .5rem;
-    padding: .5rem 5rem .5rem 5rem;
-    overflow: hidden;
-    margin-top: 25%;
-    font-size: 1.5rem;
+    margin-top: 15%;
 }
 
-.productInformation button:active {
-    background-color: rgb(255,136,0);;
-    outline: rgb(255,136,0);
+.addCartButton:focus {
+    outline: white;
 }
 
 .similarProducts {
