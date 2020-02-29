@@ -1,0 +1,86 @@
+.productInfoContainer {
+    margin: 2rem 10rem 2rem 10rem;
+}
+
+.goBack {
+    margin: 3rem 0rem 0rem 3rem;
+}
+
+.goBackButtonLogo {
+    background-image: url("./go-back-button.png");
+    border: none;
+    background-size: cover;
+    width: 1.1rem;
+    height: 1.1rem;
+    cursor: pointer;
+}
+
+.goBackButton {
+    padding-left: .2rem;
+    font-size: 1.3rem;
+    border: none;
+    cursor: pointer;
+}
+
+.goBackButtonLogo:focus {
+    outline: white;
+}
+
+.goBackButton:focus {
+    outline: white;
+}
+
+img {
+    border: 1px solid gray;
+}
+
+.productImage {
+    transition: transform 0.25s ease;
+    cursor: zoom-in;
+}
+
+.productImage:hover {
+    -webkit-transform: scale(1.6);
+    transform: scale(1.6);
+}
+
+.productInfoFlex {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    margin: 5% 20% 5% 20%;
+}
+
+.productInformation {
+    padding-left: 1.5rem;
+}
+
+.productInformation p {
+    margin: 1rem 0rem 1rem 0rem;
+}
+
+.productInformation button {
+    background-color: #febd69;
+    cursor: pointer;
+    border-radius: .5rem;
+    padding: .5rem 5rem .5rem 5rem;
+    overflow: hidden;
+    margin-top: 25%;
+    font-size: 1.5rem;
+}
+
+.productInformation button:active {
+    background-color: rgb(255,136,0);;
+    outline: rgb(255,136,0);
+}
+
+.similarProducts {
+    text-align: center;
+}
+
+.similarProducts img {
+    margin: 1rem .5rem 1rem .5rem;
+}
+
+
+

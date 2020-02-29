@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import NavBar from "../navbar/NavBar";
 import Results from "../results/Results";
+import ProductInfo from "../product-info/ProductInfo";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -56,6 +57,7 @@ export default function App() {
         <Switch>
           <Route
             path="/"
+            exact
             render={props => (
               <Results
                 {...props}
@@ -64,6 +66,7 @@ export default function App() {
               />
             )}
           ></Route>
+          <Route path="/:product" component={ProductInfo}></Route>
         </Switch>
       </Router>
     </React.Fragment>

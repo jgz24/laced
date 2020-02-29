@@ -9,11 +9,11 @@
 
 .imageButton {
     border: none;
-    background-color: gray;
+    cursor: pointer;
 }
 
 .imageButton:focus {
-    outline: 0px white;
+    outline:white;
 }
 
 p {
@@ -36,8 +36,9 @@ p {
     cursor: pointer;
 }
 
-.addCartButton:hover, .addCartButton:focus {
-    outline: 0px solid white;
+.addCartButton:active {
+    background-color: rgb(255,136,0);;
+    outline: rgb(255,136,0);
 }
 
 .animation-products-enter {
