@@ -10,14 +10,18 @@ export default function ProductType({filters,products,searchString}) {
     },[products.length]);
 
     useEffect(() => {
+        let tempHeader="All Products";
         // When user uses the search bar to search.
-        if(searchString !== "") {
+        if(searchString === undefined) {
+            setProductTypeHeader(tempHeader);
+        }
+        else if(searchString !== "") {
             let searchTermArray = searchString.split(" ");
             searchTermArray.unshift(`Searched for: "`);
             searchTermArray.push(`"`);
 
-            let searchTerm = searchTermArray.join(" ");
-            setProductTypeHeader(searchTerm);
+            tempHeader = searchTermArray.join(" ");
+            setProductTypeHeader(tempHeader);
         }
         // When user uses filters to search. 
         else {

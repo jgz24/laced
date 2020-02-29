@@ -1,5 +1,15 @@
 const Shoe = require("../models/ShoeModel");
 
+// Get all shoes from database
+const getAllShoes = async (req, res) => {
+  try {
+    const shoes = await Shoe.find({});
+    res.json(shoes);
+  } catch (err) {
+    res.json({ message: err });
+  }
+};
+
 const getShoes = async (req, res) => {
   let searchTerm = req.params.searchTerm;
 
@@ -32,4 +42,4 @@ const getShoes = async (req, res) => {
   }
 };
 
-module.exports = { getShoes };
+module.exports = { getAllShoes, getShoes };

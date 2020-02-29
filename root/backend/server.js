@@ -18,7 +18,6 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Use routes
-app.use("/", shoeRoute);
 app.use("/post", shoeRoute);
 app.use("/search", searchRoute);
 

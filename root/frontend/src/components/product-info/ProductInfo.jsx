@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 
 export default function ProductInfo({history, location, handleAddToCart}) {
     const {Name,Sport,Activity,Img,Color,Size,Quantity,Brand} = location.state;
+    const [inCart,setInCart] = useState(false);
     const [suggestedProducts,setSuggestedProducts] = useState([]);
 
     const handleBack = () => {
@@ -32,7 +33,12 @@ export default function ProductInfo({history, location, handleAddToCart}) {
       }, [Name,Sport,Activity,Brand]);
 
     const onAddCartClick = () => {
+        if(inCart) {
+
+            setInCart(false);
+        }
         handleAddToCart(location.state);
+        setInCart(true);
     }
 
     let suggested = <div className="similarProducts"> 
@@ -56,9 +62,7 @@ export default function ProductInfo({history, location, handleAddToCart}) {
                     <button className="goBackButton" onClick={handleBack}>Back</button>
                 </div>
                 <div className="productInfoFlex">
-                    <div>
-                        <img className="productImage" src={Img} alt="" height="350" width="350"></img>
-                    </div>
+                    <img className="productImage" src={Img} alt="" height="350" width="350"></img>
                     <div className="productInformation">
                         <h2>{Name}</h2>
                         <p>{`${Sport}` || `${Activity}`}</p>

@@ -13,16 +13,12 @@ export default function App() {
   const [cartItems, setCartItems] = useState([]);
 
   // Get all shoes on initial site visit
+  // OR
+  // Get shoes based on user input via URL enter press
   useEffect(() => {
-    fetch("http://localhost:8080/", {
-      method: "GET"
-    })
-      .then(res => res.json())
-      .then(json => {
-        setAllProducts(json);
-        setSearchString("");
-      })
-      .catch(err => console.log(err));
+    let searchTerm = window.location.search.slice(8);
+
+    handleSearch(searchTerm);
   }, []);
 
   // Look for individual shoes via search bar.
@@ -35,7 +31,7 @@ export default function App() {
       searchTerm.toLowerCase() === "shoes" ||
       searchTerm.toLowerCase() === "shoe"
     ) {
-      url = "http://localhost:8080/";
+      url = "http://localhost:8080/search";
     } else {
       url = `http://localhost:8080/search/${searchTerm}`;
     }
@@ -65,6 +61,18 @@ export default function App() {
           <Route
             path="/"
             exact
+            render={props => (
+              <Results
+                {...props}
+                products={allProducts}
+                searchString={searchString}
+              />
+            )}
+          ></Route>
+        </Switch>
+        <Switch>
+          <Route
+            path="/?search=:searchTerm"
             render={props => (
               <Results
                 {...props}

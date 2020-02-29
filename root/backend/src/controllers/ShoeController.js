@@ -1,15 +1,5 @@
 const Shoe = require("../models/ShoeModel");
 
-// Get all shoes from database
-const getAllShoes = async (req, res) => {
-  try {
-    const shoes = await Shoe.find({});
-    res.json(shoes);
-  } catch (err) {
-    res.json({ message: err });
-  }
-};
-
 // Post new shoe to database
 const addShoe = async (req, res) => {
   let newShoe = new Shoe({
@@ -33,4 +23,4 @@ const addShoe = async (req, res) => {
   }
 };
 
-module.exports = { getAllShoes, addShoe };
+module.exports = { addShoe };

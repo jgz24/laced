@@ -21,17 +21,20 @@ function SearchBar({handleSearch, autocompleteArray, history}) {
     }
 
     const handleClick = (event) => {
+        let tempFormValue = event.currentTarget.innerText;
+
         setFilteredSuggestions([]);
         setShowSuggestions(false);
-        setFormValue(event.currentTarget.innerText);
-        handleSearch(event.currentTarget.innerText);
+        setFormValue(tempFormValue);
+        handleSearch(tempFormValue);
+        history.push(`/?search=${tempFormValue}`);
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
         handleSearch(formValue);
         setFormValue("");
-        history.push("/");
+        history.push(`/?search=${formValue}`);
     }
 
     let suggestionsListComponent;
