@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 
 export default function ProductInfo({history, location, handleAddToCart}) {
     const {Name,Sport,Activity,Img,Color,Size,Quantity,Brand} = location.state;
-    const [inCart,setInCart] = useState(false);
+    const [cartButton,setCartButton] = useState("addCartButton");
     const [suggestedProducts,setSuggestedProducts] = useState([]);
 
     const handleBack = () => {
@@ -33,12 +33,17 @@ export default function ProductInfo({history, location, handleAddToCart}) {
       }, [Name,Sport,Activity,Brand]);
 
     const onAddCartClick = () => {
-        if(inCart) {
-
-            setInCart(false);
+        let tempCartButton = cartButton;
+        let action = "";
+        if(tempCartButton === "addCartButton") {
+            tempCartButton = "deleteCartButton";
+            action = "add";
+        } else{
+            tempCartButton = "addCartButton"
+            action = "delete"
         }
-        handleAddToCart(location.state);
-        setInCart(true);
+        setCartButton(tempCartButton);
+        handleAddToCart(action,location.state);
     }
 
     let suggested = <div className="similarProducts"> 
@@ -46,7 +51,7 @@ export default function ProductInfo({history, location, handleAddToCart}) {
                     {suggestedProducts.map((product,idx) => {
                         return (
                             <Link key={idx} to={{
-                                pathname: `/${product.Name}`,
+                                pathname: `/product/${product.Name}`,
                                 state: product
                             }}><img src={product.Img} title={product.Name} alt="" height="100" width="100"></img>
                             </Link> 
@@ -70,7 +75,7 @@ export default function ProductInfo({history, location, handleAddToCart}) {
                         <p>{`Color: ${Color}`}</p>
                         <p>{`${Quantity} in stock!`}</p>
                         <p>{`$${location.state.Price}`}</p>
-                        <button className="addCartButton" onClick={onAddCartClick}></button> 
+                        <button className={cartButton} onClick={onAddCartClick}></button> 
                     </div>
                 </div>
             </div>

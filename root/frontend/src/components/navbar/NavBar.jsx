@@ -2,6 +2,7 @@ import React from "react";
 import "./NavBar.css";
 import SearchBar from "../search-bar/SearchBar";
 import Cart from "../cart/Cart";
+import {Link} from "react-router-dom";
 
 export default function NavBar({handleSearch,cartItems}) { 
     let autocompleteArray = [
@@ -11,12 +12,18 @@ export default function NavBar({handleSearch,cartItems}) {
         'Football Cleats', 'Soccer', 'Soccer Cleats'
     ];
 
+    const handleLogoClick = () => {
+        handleSearch("");
+    }
+
     return (
     <div>
         <nav>
-            <div>
-                <a href='/'><button className="logo"></button></a>
-            </div>
+            <Link to="/">
+                <div>
+                    <button onClick={handleLogoClick} className="logo"></button>
+                </div>
+            </Link>
             <SearchBar handleSearch={handleSearch} autocompleteArray={autocompleteArray}/>
             <Cart cartItems={cartItems} />    
         </nav>

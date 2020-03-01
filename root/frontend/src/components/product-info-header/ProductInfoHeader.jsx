@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import "./ProductInfoHeader.css";
 
-export default function ProductType({filters,products,searchString}) {
+export default function ProductType({filters,products}) {
     const [productTypeHeader,setProductTypeHeader] = useState("");
     const [productQuantity,setProductQuantity] = useState(0);
 
@@ -10,13 +10,15 @@ export default function ProductType({filters,products,searchString}) {
     },[products.length]);
 
     useEffect(() => {
-        let tempHeader="All Products";
         // When user uses the search bar to search.
-        if(searchString === undefined) {
+        let searchString = window.location.search.slice(8);
+        let tempHeader="All Products";
+       
+        if(searchString === "") {
             setProductTypeHeader(tempHeader);
         }
         else if(searchString !== "") {
-            let searchTermArray = searchString.split(" ");
+            let searchTermArray = searchString.split("%20");
             searchTermArray.unshift(`Searched for: "`);
             searchTermArray.push(`"`);
 
@@ -65,7 +67,7 @@ export default function ProductType({filters,products,searchString}) {
             completeHeader === 'Shoes' ? setProductTypeHeader("All Products") : setProductTypeHeader(completeHeader);
         }
 
-    },[filters,searchString]);
+    },[filters,products]);
 
     return (
         <React.Fragment>

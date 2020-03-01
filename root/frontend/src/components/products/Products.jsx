@@ -3,6 +3,7 @@ import "./Products.css";
 import Product from "../product/Product";
 
 export default function Products({products}) {
+   
     // Case where empty object was returned by
     // search. There's nothing to render,
     // so just return null.

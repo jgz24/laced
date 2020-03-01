@@ -4,7 +4,7 @@ import ProductInfoHeader from "../product-info-header/ProductInfoHeader";
 import Filters from "../filters/Filters";
 import Products from "../products/Products";
 
-export default function Results({products, searchString}) {
+export default function Results({products}) {
     const [filteredProducts, setFilteredProducts] = useState(products);
     const [activeFilters,setActiveFilters] = useState({
         Gender : "",
@@ -151,7 +151,7 @@ export default function Results({products, searchString}) {
 
     return (
         <React.Fragment>
-            <ProductInfoHeader products={filteredProducts} filters={checkedFilters} searchString={searchString} />
+            <ProductInfoHeader products={filteredProducts} filters={checkedFilters} />
             <Filters filters={checkedFilters} handleCheckedChange={handleCheckedChange} handleActiveFilterClick={handleActiveFilterClick} />
             <Products products={filteredProducts}/>
         </React.Fragment>

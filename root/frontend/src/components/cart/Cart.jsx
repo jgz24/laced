@@ -6,8 +6,9 @@ export default function MyCart({cartItems}) {
     const [cartItemsCount, setCartItemsCount] = useState(0);
 
     useEffect(() => {
-        if (cartItems.length > 0) {
-            setCartItemsCount(cartItems.length);
+        let tempTotalItems = Object.keys(cartItems).length;
+        if (tempTotalItems > 0) {
+            setCartItemsCount(tempTotalItems);
         }
     },[cartItems])
 

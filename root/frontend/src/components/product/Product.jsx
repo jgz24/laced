@@ -19,7 +19,7 @@ export default function Product({product}) {
             classNames="animation-products">
                 <div className="product">
                     <Link to={{
-                        pathname: `/${product.Name}`,
+                        pathname: `/product/${product.Name}`,
                         state: product
                     }}>
                         <button className="imageButton"><img src={product.Img} alt="" height="350" width="350"></img></button>

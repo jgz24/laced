@@ -9,8 +9,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 export default function App() {
   const [allProducts, setAllProducts] = useState({});
-  const [searchString, setSearchString] = useState("");
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState({});
 
   // Get all shoes on initial site visit
   // OR
@@ -41,15 +40,28 @@ export default function App() {
       });
       const result = await res.json();
       setAllProducts(result);
-      setSearchString(searchTerm);
     } catch (err) {
       console.log(err);
     }
   };
 
-  const handleAddToCart = product => {
-    let tempCartItems = [...cartItems];
-    tempCartItems.push(product);
+  const handleAddToCart = (action, product) => {
+    let tempCartItems = { ...cartItems };
+    let id = product.Id;
+
+    // User wants to add item to cart
+    if (action === "add") {
+      // Individual shoes can only be
+      // in the cart once.
+      if (!tempCartItems[id]) {
+        tempCartItems[id] = product;
+      }
+    }
+    // User wants to remopve item from cart
+    else {
+      delete tempCartItems[id];
+    }
+
     setCartItems(tempCartItems);
   };
 
@@ -61,25 +73,13 @@ export default function App() {
           <Route
             path="/"
             exact
-            render={props => (
-              <Results
-                {...props}
-                products={allProducts}
-                searchString={searchString}
-              />
-            )}
+            render={props => <Results {...props} products={allProducts} />}
           ></Route>
         </Switch>
         <Switch>
           <Route
             path="/?search=:searchTerm"
-            render={props => (
-              <Results
-                {...props}
-                products={allProducts}
-                searchString={searchString}
-              />
-            )}
+            render={props => <Results {...props} products={allProducts} />}
           ></Route>
           <Route
             path="/checkout"
@@ -87,7 +87,7 @@ export default function App() {
             render={props => <CheckOut {...props} cartItems={cartItems} />}
           ></Route>
           <Route
-            path="/:product"
+            path="/product/:product"
             render={props => (
               <ProductInfo {...props} handleAddToCart={handleAddToCart} />
             )}

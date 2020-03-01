@@ -1,0 +1,43 @@
+.cartItemFlex {
+    display: flex;
+    flex-direction: column;
+}
+
+.yourCart {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    padding: 2% 0% 2% 0%;
+}
+
+.container .cartItemsFlex h2{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.cartItem {
+    display: grid;
+    grid-auto-flow: column;
+    text-align: center;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    margin-top: 1%;
+}
+
+.cartItem p{
+    margin-top: 12.5%;
+}
+
+.totals {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 1%;
+    padding-right: 6%;
+}
+
+.totals p {
+    font-size: 20px;
+}
+
+.stripeButton {
+    text-align: right;
+    padding-top: 1%;
+    margin-right: 9%;
+}

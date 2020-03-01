@@ -73,7 +73,22 @@ img {
     margin-top: 15%;
 }
 
+.deleteCartButton {
+    background-image: url("./deleteCartButton.png");
+    height: 60px;
+    width: 60px;
+    background-size: cover;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 15%;
+}
+
 .addCartButton:focus {
+    outline: white;
+}
+
+.deleteCartButton:focus {
     outline: white;
 }
 
