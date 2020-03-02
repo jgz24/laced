@@ -9,6 +9,8 @@ export default function MyCart({cartItems}) {
         let tempTotalItems = Object.keys(cartItems).length;
         if (tempTotalItems > 0) {
             setCartItemsCount(tempTotalItems);
+        } else {
+            setCartItemsCount(0);
         }
     },[cartItems])
 
