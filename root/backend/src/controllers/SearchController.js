@@ -28,6 +28,7 @@ const getShoes = async (req, res) => {
     const getShoe = await Shoe.find({
       $or: [
         { Gender: searchTerm },
+        { Keywords: searchTerm },
         { Activity: searchTerm },
         { Color: searchTerm },
         { Brand: searchTerm },

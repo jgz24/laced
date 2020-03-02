@@ -7,7 +7,6 @@ function SearchBar({handleSearch, autocompleteArray, history}) {
     const [showSuggestions,setShowSuggestions] = useState(false);
     const [formValue,setFormValue] = useState("");
 
-
     const handleChange = (event) => {
         const formValue = event.target.value;
         const filteredSuggestions = autocompleteArray.filter(
@@ -25,8 +24,8 @@ function SearchBar({handleSearch, autocompleteArray, history}) {
 
         setFilteredSuggestions([]);
         setShowSuggestions(false);
-        setFormValue(tempFormValue);
         handleSearch(tempFormValue);
+        setFormValue("");
         history.push(`/?search=${tempFormValue}`);
     }
 

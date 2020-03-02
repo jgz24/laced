@@ -5,17 +5,8 @@ import Filters from "../filters/Filters";
 import Products from "../products/Products";
 
 export default function Results({products}) {
-    const [filteredProducts, setFilteredProducts] = useState(products);
-    const [activeFilters,setActiveFilters] = useState({
-        Gender : "",
-        Activity : "",
-        Color: new Set(),
-        Brand: "",
-        Sport: "",
-        Size: new Set(),
-        Price: "",
-        "Sort By": ""
-    });
+    const [filteredProducts, setFilteredProducts] = useState([]);
+    const [activeFilters,setActiveFilters] = useState({});
     const [checkedFilters,setCheckedFilters] = useState({
         Gender : {
             Men : false,
@@ -77,8 +68,8 @@ export default function Results({products}) {
     // This function handles filters that can only have one 
     // option selected at any given time.
     const handleMultipleChecks = (tempCheckedFilters, category, filterOption) => {
-        if (category === 'Gender' || category === 'Activity' || category === 'Brand' 
-            || category === 'Sport' || category === 'Price' || category === 'Sort By') {
+        // if (category === 'Gender' || category === 'Activity' || category === 'Brand' 
+        //     || category === 'Sport' || category === 'Price' || category === 'Sort By' || category === 'Size' ) {
                 let filterArray = Object.values(tempCheckedFilters[category]);
 
                 // Count the number of "true" values.
@@ -95,9 +86,46 @@ export default function Results({products}) {
                     //Set the recently selected filter to be true
                     tempCheckedFilters[category][filterOption] = true;
                 }
-        }
+        // }
         return tempCheckedFilters;
     }; 
+
+    const handleActiveFilters = (isChecked,category,filterOption) => {
+        let tempActiveFilters = {...activeFilters};
+
+        if(isChecked) {
+            tempActiveFilters[category] = filterOption;
+        }
+        else {
+            delete tempActiveFilters[category];
+        }   
+
+        return tempActiveFilters;
+    }
+
+    const handleFilteredProducts = (activeFilters) => {
+        let keys = Object.keys(activeFilters);
+
+        // Because product doesn't have a 'Sort By' property.
+        keys = keys.filter(key => key !== 'Sort By');
+
+        let tempFilteredArray = [];
+
+        for(let i = 0; i<products.length; i++) {
+            for(let j = 0; j<keys.length; j++) {
+                // Doesnt meet filter requirement, don't add to filtered list.
+                if(activeFilters[keys[j]] !== products[i][[keys[j]]] && !products[i][[keys[j]]].includes(activeFilters[keys[j]])) {
+                    break;
+                } 
+                // Add product to filtered list if it meets all filters.
+                if(j === keys.length - 1) {
+                    tempFilteredArray.push(products[i]);            
+                }
+            }
+        }
+
+        return tempFilteredArray.length > 0 ? tempFilteredArray: products;
+    }
 
     // Handles the case where the user clicks a filter option
     // from the drop down.
@@ -110,44 +138,39 @@ export default function Results({products}) {
         // Change the value of the filter to true or false
         tempCheckedFilters[category][filterOption] = isChecked;
 
-        // let test = {...activeFilters};
-
-        // if(isChecked) {
-        //     if(category === 'Color' || category === 'Size') {
-        //         test[category].add(filterOption);
-        //     }
-        //     else {
-        //         test[category] = filterOption;
-        //     }
-        // }
-        // else {
-        //     if(category === 'Color' || category === 'Size') {
-        //         test[category].delete(filterOption);
-        //     }
-        //     else {
-        //         test[category] = "";
-        //     }
-        // }
-
-        // setActiveFilters(test);
-
         setCheckedFilters(tempCheckedFilters);
+    
+        let tempActiveFilters = handleActiveFilters(isChecked,category,filterOption);
+
+        setActiveFilters(tempActiveFilters);
+
+        let tempFilteredProducts = handleFilteredProducts(tempActiveFilters);
+
+        setFilteredProducts(tempFilteredProducts);
     };
 
     // Handles the case where user clicks an active filter
     // meaning it should be set to false.
     const handleActiveFilterClick = (category, filterOption) => {
         // Create a deep copy of the checkedFilters object
-        let tempCheckedFilters = JSON.parse(JSON.stringify(checkedFilters));
+        let tempCheckedFilters = {...checkedFilters};
 
         // Change the value of the filter to be false
         tempCheckedFilters[category][filterOption] = false;
 
         setCheckedFilters(tempCheckedFilters);
+
+        let tempActiveFilters = handleActiveFilters(false, category, filterOption);
+
+        setActiveFilters(tempActiveFilters);
+
+        let tempFilteredProducts = handleFilteredProducts(tempActiveFilters);
+
+        setFilteredProducts(tempFilteredProducts);
     }
 
-    console.log("Active Filters",activeFilters);
-    console.log("Original Products", products);
+    console.log(products);
+    console.log(activeFilters);
 
     return (
         <React.Fragment>

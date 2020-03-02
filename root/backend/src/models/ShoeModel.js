@@ -11,7 +11,8 @@ const ShoeSchema = new mongoose.Schema({
   Sport: String,
   Size: [String],
   Price: String,
-  Quantity: Number
+  Quantity: Number,
+  Keywords: [String]
 });
 
 const Shoe = mongoose.model("Shoes", ShoeSchema);

@@ -94,12 +94,12 @@ export default function CheckOut({cartItems}) {
                         <div className="cartItemFlex">
                             <p>{`$${balance}`}</p>
                             <p>{`$${tax}`}</p>
-                            <p><strong>{`$${total}`}</strong></p>
+                            <p>{`$${total}`}</p>
                         </div>
                         <div className="cartItemFlex">
                             <p>Balance: </p>
                             <p>Tax @ 7.75%: </p>
-                            <p><strong>Total: </strong></p>
+                            <p>Total: </p>
                         </div>
                     </div>
                     <div className="stripeButton">

@@ -14,10 +14,7 @@ export default function ProductType({filters,products}) {
         let searchString = window.location.search.slice(8);
         let tempHeader="All Products";
        
-        if(searchString === "") {
-            setProductTypeHeader(tempHeader);
-        }
-        else if(searchString !== "") {
+        if(searchString !== "") {
             let searchTermArray = searchString.split("%20");
             searchTermArray.unshift(`Searched for: "`);
             searchTermArray.push(`"`);
@@ -64,7 +61,7 @@ export default function ProductType({filters,products}) {
 
             // If the string is === 'Shoes' then no valid filters have been chosen so display "All products"
             // Otherwise, display the string with valid filters.
-            completeHeader === 'Shoes' ? setProductTypeHeader("All Products") : setProductTypeHeader(completeHeader);
+            completeHeader === 'Shoes' ? setProductTypeHeader(tempHeader) : setProductTypeHeader(completeHeader);
         }
 
     },[filters,products]);
