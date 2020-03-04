@@ -49,7 +49,7 @@ const db = mongoose.connection;
 //Bind connection to error event (to get notification of connection errors)
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
-port = process.env.port || 5000;
+port = process.env.PORT || 5000;
 
 app.listen(port, () => {
   console.log(`Server started at port ${port}`);
