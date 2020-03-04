@@ -164,10 +164,7 @@ button {
 
 @media screen and (min-width: 1200px) {
     .productInfoContainer {
-        margin: 2rem 4rem 2rem 4rem;
-    }
-    .goBack {
-        margin: 0rem 0rem 0rem 0rem;
+        margin: 2rem 5.5rem 2rem 5.5rem;
     }
     .productImage {
         height: 290px;
@@ -193,7 +190,7 @@ button {
 
 @media screen and (min-width: 1300px) {
     .productInfoContainer {
-        margin: 2rem 4rem 2rem 4rem;
+        margin: 2rem 6.5rem 2rem 6.5rem;
     }
     .goBack {
         margin: .5rem 0rem 0rem .5rem;
@@ -222,7 +219,7 @@ button {
 
 @media screen and (min-width: 1400px) {
     .productInfoContainer {
-        margin: 2rem 5rem 2rem 5rem;
+        margin: 2rem 7rem 2rem 7rem;
     }
     .goBack {
         margin: .6rem 0rem 0rem .6rem;
@@ -247,7 +244,7 @@ button {
 
 @media screen and (min-width: 1500px) {
     .productInfoContainer {
-        margin: 2rem 5rem 2rem 5rem;
+        margin: 2rem 7.5rem 2rem 7.5rem;
     }
     .goBack {
         margin: .6rem 0rem 0rem .6rem;
@@ -297,7 +294,7 @@ button {
 
 @media screen and (min-width: 1650px) {
     .productInfoContainer {
-        margin: 2rem 10rem 2rem 10rem;
+        margin: 2rem 9rem 2rem 9rem;
     }
     .goBack {
         margin: 3rem 0rem 0rem 3rem;
