@@ -22,15 +22,19 @@ app.use(bodyParser.json());
 // Serve all static files from build directory
 app.use(express.static(path.join(__dirname, "build")));
 
-// Serve any unknown routes to index.html
-app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
+app.get("/", function(req, res) {
+  res.redirect("/search");
 });
 
 // Use routes
 app.use("/post", shoeRoute);
 app.use("/search", searchRoute);
 app.use("/checkout", checkOutRoute);
+
+// Serve any unknown routes to index.html
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
 
 // Connect to mongoDB
 mongoose.connect(
