@@ -40,7 +40,7 @@ export default function ProductInfo({history, location}) {
 
         // If shoe is associated with a sport, then search
         // shoes based on that sport
-        if(Sport !== "") {
+        if(Sport !== "" & Sport !== "Football") {
             url = `http://localhost:8080/search/${Sport}`;
         }
 
@@ -66,7 +66,7 @@ export default function ProductInfo({history, location}) {
       };
 
     let suggested = <div className="similarProducts"> 
-                    {suggestedProducts.length > 0 && Sport !== "" ? <h2>{`Other ${Sport} Products`}</h2> : <h2>{`Other ${Brand} Products`}</h2>}
+                    {suggestedProducts.length > 0 && (Sport !== "" && Sport !== "Football") ? <h2>{`Other ${Sport} Products`}</h2> : <h2>{`Other ${Brand} Products`}</h2>}
                     {suggestedProducts.map((product,idx) => {
                         return (
                             <Link key={idx} to={{
@@ -86,7 +86,7 @@ export default function ProductInfo({history, location}) {
                     <button className="goBackButton" onClick={handleBack}>Back</button>
                 </div>
                 <div className="productInfoFlex">
-                    <img className="productImage" src={Img} alt="" height="350" width="350"></img>
+                    <img className="productImage" src={Img} alt=""></img>
                     <div className="productInformation">
                         <h2>{Name}</h2>
                         <p>{`${Sport}` || `${Activity}`}</p>

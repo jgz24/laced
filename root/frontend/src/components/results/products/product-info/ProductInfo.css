@@ -104,5 +104,222 @@ button {
     margin: 1rem .5rem 1rem .5rem;
 }
 
+@media screen and (min-width: 1000px) {
+    .productInfoContainer {
+        margin: 2rem 2rem 2rem 2rem;
+    }
+    .goBack {
+        margin: 0rem 0rem 0rem 0rem;
+    }
+    .productImage {
+        height: 280px;
+        width: 280px;
+    }
+    .productInformation h2 {
+        font-size: 14px;
+    }
+    .productInformation p {
+        font-size: 10px;
+    }
+    .addCartButton{
+        height: 40px;
+        width: 40px;
+        margin-top: 15%;
+    }
+    .deleteCartButton {
+        height: 45px;
+        width: 45px;
+        margin-top: 15%;
+    }
+}
 
+@media screen and (min-width: 1100px) {
+    .productInfoContainer {
+        margin: 2rem 3rem 2rem 3rem;
+    }
+    .goBack {
+        margin: 0rem 0rem 0rem 0rem;
+    }
+    .productImage {
+        height: 290px;
+        width: 290px;
+    }
+    .productInformation h2 {
+        font-size: 15px;
+    }
+    .productInformation p {
+        font-size: 11px;
+    }
+    .addCartButton{
+        height: 40px;
+        width: 40px;
+        margin-top: 30%;
+    }
+    .deleteCartButton {
+        height: 45px;
+        width: 45px;
+        margin-top: 27%;
+    }
+}
 
+@media screen and (min-width: 1200px) {
+    .productInfoContainer {
+        margin: 2rem 4rem 2rem 4rem;
+    }
+    .goBack {
+        margin: 0rem 0rem 0rem 0rem;
+    }
+    .productImage {
+        height: 290px;
+        width: 290px;
+    }
+    .productInformation h2 {
+        font-size: 16px;
+    }
+    .productInformation p {
+        font-size: 12px;
+    }
+    .addCartButton{
+        height: 40px;
+        width: 40px;
+        margin-top: 20%;
+    }
+    .deleteCartButton {
+        height: 45px;
+        width: 45px;
+        margin-top: 20%;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .productInfoContainer {
+        margin: 2rem 4rem 2rem 4rem;
+    }
+    .goBack {
+        margin: .5rem 0rem 0rem .5rem;
+    }
+    .productImage {
+        height: 300px;
+        width: 300px;
+    }
+    .productInformation h2 {
+        font-size: 18px;
+    }
+    .productInformation p {
+        font-size: 13px;
+    }
+    .addCartButton{
+        height: 45px;
+        width: 45px;
+        margin-top: 15%;
+    }
+    .deleteCartButton {
+        height: 50px;
+        width: 50px;
+        margin-top: 15%;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .productInfoContainer {
+        margin: 2rem 5rem 2rem 5rem;
+    }
+    .goBack {
+        margin: .6rem 0rem 0rem .6rem;
+    }
+    .productInformation h2 {
+        font-size: 18px;
+    }
+    .productInformation p {
+        font-size: 14px;
+    }
+    .addCartButton{
+        height: 45px;
+        width: 45px;
+        margin-top: 15%;
+    }
+    .deleteCartButton {
+        height: 50px;
+        width: 50px;
+        margin-top: 15%;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .productInfoContainer {
+        margin: 2rem 5rem 2rem 5rem;
+    }
+    .goBack {
+        margin: .6rem 0rem 0rem .6rem;
+    }
+    .productInformation h2 {
+        font-size: 18px;
+    }
+    .productInformation p {
+        font-size: 14px;
+    }
+    .addCartButton{
+        height: 50px;
+        width: 50px;
+        margin-top: 12%;
+    }
+    .deleteCartButton {
+        height: 55px;
+        width: 55px;
+        margin-top: 12%;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .productInfoContainer {
+        margin: 2rem 8rem 2rem 8rem;
+    }
+    .goBack {
+        margin: 2.5rem 0rem 0rem 2.5rem;
+    }
+    .productImage {
+        height: 300px;
+        width: 300px;
+    }
+    .productInformation h2 {
+        font-size: 20px;
+    }
+    .productInformation p {
+        font-size: 14px;
+    }
+    .addCartButton{
+        margin-top: 15%;
+    }
+    .deleteCartButton {
+        margin-top: 15%;
+    }
+}
+
+@media screen and (min-width: 1650px) {
+    .productInfoContainer {
+        margin: 2rem 10rem 2rem 10rem;
+    }
+    .goBack {
+        margin: 3rem 0rem 0rem 3rem;
+    }
+    .productImage {
+        height: 350px;
+        width: 350px;
+    }
+    .productInformation h2 {
+        font-size: 22px;
+    }
+    .productInformation p {
+        font-size: 16px;
+    }
+    .addCartButton{
+        height: 55px;
+        width: 55px;
+        margin-top: 18%;
+    }
+    .deleteCartButton {
+        height: 60px;
+        width: 60px;
+        margin-top: 18%;
+    }
+}

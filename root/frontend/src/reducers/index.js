@@ -4,7 +4,7 @@ import checkedFiltersReducer from "./checkedFilters";
 import setProductsReducer from "./products";
 import { combineReducers } from "redux";
 import { persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
+import storage from "redux-persist/lib/storage/session";
 
 const persistConfig = {
   key: "root",

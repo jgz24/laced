@@ -22,7 +22,7 @@ export default function Product({product}) {
                         pathname: `/product/${product.Name}`,
                         state: product
                     }}>
-                        <button className="imageButton"><img src={product.Img} alt="" height="350" width="350"></img></button>
+                        <button className="imageButton"><img src={product.Img} alt=""></img></button>
                     </Link>
                     <div className="priceQuantityInfo">
                         <p>{product.Name}</p>  

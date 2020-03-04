@@ -4,8 +4,6 @@
 
 .myCart {
     background-image: url("./cartLogo.png");
-    height: 55px;
-    width: 55px;
     background-size: cover;
     border: none;
     background-color: #232f3e;
@@ -20,46 +18,81 @@
 .cartFlex p {
     background-color: #232f3e;
     margin: 0;
-    font-size: 20px;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (min-width: 1px) {
     .myCart {
-        font-size: 1.2rem;
+        height: .5rem;
+        width: .5rem;
+    }
+    .cartFlex p {
+        font-size: 5px;
     }
 }
 
-@media screen and (max-width: 570px) {
-    .myCart{
-        font-size: 1rem;
+@media screen and (min-width: 300px) {
+    .myCart {
+        height: 1rem;
+        width: 1rem;
+    }
+    .cartFlex p {
+        font-size: 10px;
     }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (min-width: 400px) {
     .myCart {
-        font-size: .9rem;
-        padding-top: 2px;
+        height: 1.6rem;
+        width: 1.6rem;
+    }
+    .cartFlex p {
+        font-size: 12px;
     }
 }
 
-@media screen and (max-width: 415px) {
+@media screen and (min-width: 500px) {
     .myCart {
-        font-size: .6rem;
-        padding-top: 6px;
-        padding-bottom: 2px;
+        height: 2rem;
+        width: 2rem;
+    }
+    .cartFlex p {
+        font-size: 14px;
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (min-width: 600px) {
     .myCart {
-        font-size: .8rem;
-        padding-top: 3px;
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+    .cartFlex p {
+        font-size: 16px;
     }
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (min-width: 800px) {
     .myCart {
-        font-size: .8rem;
-        padding-top: 3px;
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .myCart {
+        height: 3rem;
+        width: 3rem;
+    }
+    .cartFlex p {
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .myCart {
+        height: 3.5rem;
+        width: 3.5rem;
+    }
+    .cartFlex p {
+        font-size: 20px;
     }
 }
