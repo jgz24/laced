@@ -1,7 +1,7 @@
 import React from "react";
 import "./ActiveFilters.css";
 
-export default function ActiveFilters({filterCategory,filterOption, handleActiveFilterClick}) {
+export default function ActiveFilters({filterCategory,filterOption,handleActiveFilterClick}) {
 
     const handleClick = () => {
         handleActiveFilterClick(filterCategory,filterOption);

@@ -1,15 +1,37 @@
 import React, {useState,useEffect} from "react";
 import "./ProductInfo.css";
 import {Link} from "react-router-dom";
+import {useSelector, useDispatch} from "react-redux";
+import { addCartItem, deleteCartItem } from "../../../../actions";
 
-export default function ProductInfo({history, location, handleAddToCart}) {
-    const {Name,Sport,Activity,Img,Color,Size,Quantity,Brand} = location.state;
-    const [cartButton,setCartButton] = useState("addCartButton");
+export default function ProductInfo({history, location}) {
+    const cartItems = useSelector(state => state.cartItems);
+    const dispatch = useDispatch();
+
+    const {Name,Sport,Activity,Img,Color,Size,Quantity,Brand,Id} = location.state;
+    const [cartButton,setCartButton] = useState("");
     const [suggestedProducts,setSuggestedProducts] = useState([]);
 
     const handleBack = () => {
         history.goBack();
     }
+
+    useEffect(() => {
+        let vals = Object.keys(cartItems);
+        let cartButton = "addCartButton";
+
+        if(vals.length !== 0) {
+            for (let val in vals) {
+                if(cartItems[val].Id === Id) {
+                    cartButton="deleteCartButton";
+                } else {
+                    continue;
+                }
+            }
+        }
+        setCartButton(cartButton);
+
+    },[cartItems, Id])
 
     useEffect(() => {
         // If shoe is not associated with a sport then
@@ -32,19 +54,16 @@ export default function ProductInfo({history, location, handleAddToCart}) {
           .catch(err => console.log(err));
       }, [Name,Sport,Activity,Brand]);
 
-    const onAddCartClick = () => {
-        let tempCartButton = cartButton;
-        let action = "";
-        if(tempCartButton === "addCartButton") {
-            tempCartButton = "deleteCartButton";
-            action = "add";
-        } else{
-            tempCartButton = "addCartButton"
-            action = "delete"
+      
+      const handleCartClick = () => {
+        if(cartButton === "addCartButton") {
+            dispatch(addCartItem(location.state));
+            setCartButton("deleteCartButton")
+        } else {
+            dispatch(deleteCartItem(location.state));
+            setCartButton("addCartButton");
         }
-        setCartButton(tempCartButton);
-        handleAddToCart(action,location.state);
-    }
+      };
 
     let suggested = <div className="similarProducts"> 
                     {suggestedProducts.length > 0 && Sport !== "" ? <h2>{`Other ${Sport} Products`}</h2> : <h2>{`Other ${Brand} Products`}</h2>}
@@ -75,7 +94,7 @@ export default function ProductInfo({history, location, handleAddToCart}) {
                         <p>{`Color: ${Color}`}</p>
                         <p>{`${Quantity} in stock!`}</p>
                         <p>{`$${location.state.Price}`}</p>
-                        <button className={cartButton} onClick={onAddCartClick}></button> 
+                        <button className={cartButton} onClick={handleCartClick}></button> 
                     </div>
                 </div>
             </div>

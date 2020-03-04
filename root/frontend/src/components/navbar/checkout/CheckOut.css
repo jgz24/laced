@@ -1,0 +1,91 @@
+.cartItemFlex {
+    display: flex;
+    flex-direction: column;
+}
+
+.goBackCheckout {
+    margin: 3rem 0rem 0rem 10rem;
+}
+
+.goBackCheckoutButton {
+    padding-left: .2rem;
+    font-size: 1.3rem;
+    border: none;
+    cursor: pointer;
+    background-color: white;
+}
+
+.goBackCheckoutLogo {
+    background-image: url("./go-back-button.png");
+    border: none;
+    background-size: cover;
+    width: 1.1rem;
+    height: 1.1rem;
+    cursor: pointer;
+    background-color: white;
+}
+
+.goBackCheckoutButton:focus {
+    outline: white;
+}
+
+.goBackCheckoutLogo:focus {
+    outline: white;
+}
+
+.yourCart {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    padding-bottom: 2%;
+}
+
+.container .cartItemsFlex h2{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.cartItem {
+    display: grid;
+    grid-auto-flow: column;
+    text-align: center;
+    grid-template-columns: 19% 19% 19% 19% 19% 5%;
+    grid-template-rows: 60%;
+    margin-top: 1%;
+}
+
+.cartItem p{
+    margin-top: 12.5%;
+}
+
+.cartItem button {
+    background-color: #febd69;
+    margin-top: 40%;
+    border-radius: 5px;
+    border: none;
+}
+
+.cartItem button:active {
+    background-color:  rgb(255,136,0);
+    outline: rgb(255,136,0);
+}
+
+.totals {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 4%;
+    margin-right: 1%;
+}
+
+.totals p {
+    font-size: 20px;
+}
+
+.totalValues p {
+    text-align: right;
+}
+
+
+.stripeButton {
+    text-align: right;
+    padding-top: 1%;
+    margin-right: 4%;
+}

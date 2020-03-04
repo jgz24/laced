@@ -4,12 +4,20 @@ import 'react-toastify/dist/ReactToastify.css'
 import {Link} from "react-router-dom";
 import StripeCheckout from "react-stripe-checkout";
 import {toast} from "react-toastify";
+import {useSelector,useDispatch} from "react-redux";
+import {deleteCartItem, removeAllCartItems} from "../../../actions";
 
 toast.configure();
 
-export default function CheckOut({cartItems}) {
+export default function CheckOut({history}) {
+    const cartItems = useSelector(state => state.cartItems);
+    const dispatch = useDispatch();
     let cartItemKeys = Object.keys(cartItems);
 
+
+    const handleBack = () => {
+        history.goBack();
+    }
 
     const handleToken = async (token) => {
         let fullBody = {...token};
@@ -29,8 +37,9 @@ export default function CheckOut({cartItems}) {
         console.log(result);
 
         if(result.status === "success") {
-            toast("Success! Thanks for your purchase!", {type: 'success'});
-            setTimeout( () => window.location.replace("http://localhost:3000/"), 5000);
+            toast("Success! Thanks for your purchase!", {type: 'success', autoClose: 3000});
+            setTimeout( () => dispatch(removeAllCartItems()), 3000);
+            setTimeout( () => window.location.replace("http://localhost:3000/"), 3000);
         } 
         else {
             toast("Something went wrong!", {type: 'error'});
@@ -38,19 +47,20 @@ export default function CheckOut({cartItems}) {
     }
 
     const getBalance = () => {
-        let tempTotal = 0.00;
+        let tempTotal = 0;
 
         cartItemKeys.forEach(key => tempTotal += parseFloat(cartItems[key].Price));
+        
 
         return tempTotal;
     }
 
     const getTax = () => {
-        let tax = 0.00;
+        let tax = 0;
 
-        cartItemKeys.forEach(key => tax += (parseFloat(cartItems[key].Price) * .0775));
+        cartItemKeys.forEach(key => tax += parseFloat(cartItems[key].Price) * .0775);
 
-        return Math.ceil(tax * 100)/100;
+        return Math.round(tax*100)/100;
     }
 
     let balance = getBalance();
@@ -61,10 +71,18 @@ export default function CheckOut({cartItems}) {
     if(cartItemKeys.length <= 0) {
         cart = 
             <div className="container">
+                <div className="goBackCheckout">
+                    <button className="goBackCheckoutLogo"></button>
+                    <button className="goBackCheckoutButton" onClick={handleBack}>Back</button>
+                </div>
                 <h1 className="yourCart">YOUR CART IS EMPTY</h1>
             </div>
     } else {
         cart = <div className="container">
+                    <div className="goBackCheckout">
+                        <button className="goBackCheckoutLogo"></button>
+                        <button className="goBackCheckoutButton" onClick={handleBack}>Back</button>
+                    </div>
                     <h1 className="yourCart">YOUR CART</h1>
                     <div className="cartItemsFlex"> 
                         <div className="cartItem">
@@ -86,12 +104,13 @@ export default function CheckOut({cartItems}) {
                                 <p>{cartItems[key].Color.map(color => `${color} `)}</p>
                                 <p>{cartItems[key].Size}</p>
                                 <p>{`$${cartItems[key].Price}`}</p>    
+                                <button onClick={() => dispatch(deleteCartItem(cartItems[key]))}>REMOVE</button>
                             </div>
                             )
                         })}
                     </div>
                     <div className="totals">
-                        <div className="cartItemFlex">
+                        <div className="cartItemFlex totalValues">
                             <p>{`$${balance}`}</p>
                             <p>{`$${tax}`}</p>
                             <p>{`$${total}`}</p>
@@ -108,7 +127,7 @@ export default function CheckOut({cartItems}) {
                                     billingAddress
                                     shippingAddress
                                     amount={total*100}
-                                    name={`${cartItems[cartItemKeys[0]].Name} and more!`}
+                                    name={cartItems.length > 1 ? `${cartItems[cartItemKeys[0]].Name} and more!` : `${cartItems[cartItemKeys[0]].Name}`}
                         />
                     </div>
                 </div>

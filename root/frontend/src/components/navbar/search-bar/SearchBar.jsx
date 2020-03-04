@@ -1,11 +1,33 @@
 import React, {useState} from "react";
 import "./SearchBar.css";
 import {withRouter} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {searchApiCall} from "../../../actions";
 
-function SearchBar({handleSearch, autocompleteArray, history}) {
+function SearchBar({autocompleteArray, history}) {
+    const dispatch = useDispatch();
+
     const [filteredSuggestions,setFilteredSuggestions] = useState([]);
     const [showSuggestions,setShowSuggestions] = useState(false);
     const [formValue,setFormValue] = useState("");
+
+    // Look for individual shoes via search bar.
+    // Takes in all filter options other than
+    // "Sort By"
+    const handleSearch = async searchTerm => {
+      let url = "";
+      if (
+        searchTerm.length === 0 ||
+        searchTerm.toLowerCase() === "shoes" ||
+        searchTerm.toLowerCase() === "shoe"
+      ) {
+        url = "http://localhost:8080/search";
+      } else {
+        url = `http://localhost:8080/search/${searchTerm}`;
+      }
+
+      dispatch(searchApiCall(url));
+    }
 
     const handleChange = (event) => {
         const formValue = event.target.value;
@@ -47,7 +69,7 @@ function SearchBar({handleSearch, autocompleteArray, history}) {
         if (tempFilteredSuggestions.length) {
           suggestionsListComponent = (
             <ul className="suggestions">
-              {tempFilteredSuggestions.map((suggestion, index) => {
+              {tempFilteredSuggestions.map((suggestion) => {
                 
                 return (
                   <li  key={suggestion} onClick={handleClick}>

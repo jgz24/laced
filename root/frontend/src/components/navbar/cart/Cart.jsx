@@ -1,17 +1,16 @@
 import React, {useState,useEffect} from "react";
 import "./Cart.css";
 import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
 
-export default function MyCart({cartItems}) {
+export default function MyCart() {
+    const cartItems = useSelector(state => state.cartItems);
+    
     const [cartItemsCount, setCartItemsCount] = useState(0);
 
     useEffect(() => {
         let tempTotalItems = Object.keys(cartItems).length;
-        if (tempTotalItems > 0) {
-            setCartItemsCount(tempTotalItems);
-        } else {
-            setCartItemsCount(0);
-        }
+        setCartItemsCount(tempTotalItems);
     },[cartItems])
 
     return  (

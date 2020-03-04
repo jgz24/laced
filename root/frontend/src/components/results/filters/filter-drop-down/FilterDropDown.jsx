@@ -1,6 +1,6 @@
 import React from "react";
 import "./FilterDropDown.css";
-import DropDownLabel from "../drop-down-label/DropDownLabel";
+import DropDownLabel from "./drop-down-label/DropDownLabel";
 
 export default function FilterDropDown({checkedFilter, category, handleCheckedChange}) {
     let checkedFilters = Object.entries(checkedFilter);

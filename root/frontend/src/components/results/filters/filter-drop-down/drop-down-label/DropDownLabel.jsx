@@ -1,7 +1,7 @@
 import React from 'react';
 import "./DropDownLabel.css"
 
-export default function DropDownLabel({option, category, handleCheckedChange, checked}) {
+export default function DropDownLabel({option, category, checked, handleCheckedChange}) {
     const handleChange = (event) => {
         let name = event.target.name;
         let isChecked = event.target.checked;

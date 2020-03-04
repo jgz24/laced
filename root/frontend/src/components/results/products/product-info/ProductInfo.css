@@ -36,6 +36,10 @@ img {
     border: 1px solid gainsboro;
 }
 
+button {
+    background-color: white;
+}
+
 .productImage {
     transition: transform 0.25s ease;
     cursor: zoom-in;

@@ -1,8 +1,8 @@
 import React, {useState,useEffect} from "react";
 import "./Filters.css"
-import Filter from "../filter/Filter";
-import FilterDropDown from "../filter-drop-down/FilterDropDown";
-import ActiveFilters from "../active-filters/ActiveFilters";
+import Filter from "./filter/Filter";
+import FilterDropDown from "./filter-drop-down/FilterDropDown";
+import ActiveFilters from "./active-filters/ActiveFilters";
 
 export default function Filters({ filters, handleCheckedChange, handleActiveFilterClick}) {
     const [activeFilters,setActiveFilters] = useState([]);
@@ -11,6 +11,7 @@ export default function Filters({ filters, handleCheckedChange, handleActiveFilt
         let filterKeys = Object.keys(filters);
         let filterArray = [];
 
+        // Get all filter categories that are true.
         filterKeys.forEach(filterKey => {
             let categories = Object.keys(filters[filterKey]);
             categories.map(category => filters[filterKey][category] === true ? filterArray.push({filterCategory : filterKey, filterOption : category}) : "");
