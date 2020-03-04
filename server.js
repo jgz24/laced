@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Parse application/json
 app.use(bodyParser.json());
 // Disables cors errors
-app.use(cors());
+// app.use(cors());
 
 // Serve all static files from build directory
 app.use(express.static(path.join(__dirname, "build")));
