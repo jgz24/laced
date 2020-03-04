@@ -25,7 +25,7 @@ export default function CheckOut({history}) {
         fullBody.name = `${cartItems[cartItemKeys[0]].Name} and more!`;
 
         const response = await 
-                        fetch("http://localhost:8080/checkout", 
+                        fetch("/checkout", 
                         {method: "POST",
                         headers: {
                             'Content-Type' : 'application/json'
@@ -39,7 +39,7 @@ export default function CheckOut({history}) {
         if(result.status === "success") {
             toast("Success! Thanks for your purchase!", {type: 'success', autoClose: 3000});
             setTimeout( () => dispatch(removeAllCartItems()), 3000);
-            setTimeout( () => window.location.replace("http://localhost:3000/"), 3000);
+            setTimeout( () => window.location.replace("/"), 3000);
         } 
         else {
             toast("Something went wrong!", {type: 'error'});

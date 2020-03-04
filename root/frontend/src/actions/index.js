@@ -61,7 +61,10 @@ export const searchApiCall = url => {
   return async dispatch => {
     try {
       const res = await fetch(url, {
-        method: "GET"
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        }
       });
       const result = await res.json();
       dispatch(setProducts(result));

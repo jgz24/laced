@@ -21,9 +21,9 @@ function SearchBar({autocompleteArray, history}) {
         searchTerm.toLowerCase() === "shoes" ||
         searchTerm.toLowerCase() === "shoe"
       ) {
-        url = "http://localhost:8080/search";
+        url = "/search";
       } else {
-        url = `http://localhost:8080/search/${searchTerm}`;
+        url = `/search/${searchTerm}`;
       }
 
       dispatch(searchApiCall(url));

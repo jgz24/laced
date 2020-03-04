@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const path = require("path");
 require("dotenv/config");
 
 // Routes
@@ -16,12 +17,19 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Parse application/json
 app.use(bodyParser.json());
 // Disables cors errors
-app.use(cors());
+
+// Serve all static files from build directory
+app.use(express.static(path.join(__dirname, "build")));
 
 // Use routes
 app.use("/post", shoeRoute);
 app.use("/search", searchRoute);
 app.use("/checkout", checkOutRoute);
+
+// Serve any unknown routes to index.html
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
 
 // Connect to mongoDB
 mongoose.connect(
@@ -36,7 +44,7 @@ const db = mongoose.connection;
 //Bind connection to error event (to get notification of connection errors)
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
-port = process.env.port || 8080;
+port = process.env.PORT || 5000;
 
 app.listen(port, () => {
   console.log(`Server started at port ${port}`);

@@ -36,16 +36,19 @@ export default function ProductInfo({history, location}) {
     useEffect(() => {
         // If shoe is not associated with a sport then
         // just search by brand. 
-        let url = `http://localhost:8080/search/${Brand}`;
+        let url = `/search/${Brand}`;
 
         // If shoe is associated with a sport, then search
         // shoes based on that sport
         if(Sport !== "" & Sport !== "Football") {
-            url = `http://localhost:8080/search/${Sport}`;
+            url = `/search/${Sport}`;
         }
 
         fetch(url, {
-          method: "GET"
+          method: "GET", 
+          headers: {
+              'Content-Type' : 'application/json'
+          }
         })
           .then(res => res.json())
           .then(json => {
