@@ -1,0 +1,35 @@
+.filterButton {
+    padding: .2rem .3rem .2rem .3rem;
+    background-color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 14px;
+    text-align: center;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.filterCrossLogo {
+    margin: 0rem .1rem 0rem .1rem;
+    background-image: url("./filterCrossLogo.png");
+    border: none;
+    background-size: cover;
+    width: 6px;
+    height: 6px;
+    cursor: pointer;
+}
+
+.filterButton:focus {
+    outline: 0px white;
+}
+
+.filterCrossLogo:focus {
+    outline: 0px white;
+}
+
+.activeFilters {
+    border: 1px solid gray;
+    background-color: whitesmoke;
+    margin-right: .3rem;
+    padding-right: .2rem;
+}

@@ -1,0 +1,120 @@
+.product {
+    display: flex;
+    flex-direction: column;
+}
+
+.product:hover {
+    outline: 1px solid black;
+}
+
+.imageButton {
+    border: none;
+    cursor: pointer;
+}
+
+.imageButton:focus {
+    outline:white;
+}
+
+p {
+    background-color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.priceQuantityInfo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.animation-products-enter {
+    opacity: 0;
+}
+
+.animation-products-enter-active {
+    opacity: 1;
+    transition: opacity 300ms, transform 300ms;
+}
+
+@media screen and (min-width: 1000px) {
+    .product img {
+        height: 220px;
+        width: 220px;
+    }
+    p {
+        font-size: 14px;
+        margin: .3rem .4rem .3rem .4rem;
+    }
+}
+
+@media screen and (min-width: 1100px) {
+    .product img {
+        height: 240px;
+        width: 240px;
+    }
+
+}
+
+@media screen and (min-width: 1200px) {
+    .product img {
+        height: 260px;
+        width: 260px;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .product img {
+        height: 280px;
+        width: 280px;
+    }
+    p {
+        font-size: 15px;
+        margin: .3rem .4rem .3rem .4rem;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .product img {
+        height: 300px;
+        width: 300px;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .product img {
+        height: 280px;
+        width: 280px;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .product img {
+        height: 300px;
+        width: 300px;
+    }
+}
+
+@media screen and (min-width: 1700px) {
+    .product img {
+        height: 330px;
+        width: 330px;
+    }
+    p {
+        font-size: 18px;
+        margin: .4rem .5rem .4rem .5rem;
+    }
+}
+
+@media screen and (min-width: 1800px) {
+    .product img {
+        height: 350px;
+        width: 350px;
+    }
+}
+
+@media screen and (min-width: 1850px) {
+    .product img {
+        height: 370px;
+        width: 370px;
+    }
+}
+
