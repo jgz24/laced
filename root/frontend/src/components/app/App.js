@@ -30,7 +30,6 @@ export default function App() {
       } else {
         url = `/search/${searchTerm}`;
       }
-      console.log(url);
 
       dispatch(searchApiCall(url));
     };
