@@ -13,12 +13,14 @@ Back end - Node, Express, MongoDB
 Misc - Amazon S3(storage for shoe images), React Stripe(handles payments)  
 
 ## Possible todos/improvements
-1. Update database when purchase is made. Specifically quantity, when quantitiy of a shoe equals 1 during time of purchase, delete it instead. Otherwise, just update shoe's quantity by subtracting 1.
-2. User authentication (sign in/sign out/register/JWT)
-3. Recent orders page
-4. Improve search for multi-word queries
+<p>1. Update database when purchase is made. Specifically quantity, when quantitiy of a shoe equals 1 during time of purchase, delete it. Otherwise, just update shoe's quantity by subtracting 1. <p>
+<p>2. User authentication (sign in/sign out/register/JWT)<p>
+<p>3. Recent orders page<p>
+<p>4. Improve search for multi-word queries<p>
 
 ## Demo Information
 Visit https://laced-app.herokuapp.com/
 
-For Stripe payments, please use Stripe's recommended testing card number <strong>4242 4242 4242 4242</strong> 
+For Stripe payments, please use Stripe's recommended testing card number <strong>4242 4242 4242 4242</strong>.
+<br>
+All other payment information is up to you.
