@@ -15,7 +15,7 @@ const makePayment = async (req, res) => {
     const idempotencyKey = uuidv4();
     const charge = await stripe.charges.create(
       {
-        amount: total * 100,
+        amount: total,
         currency: "usd",
         customer: customer.id,
         receipt_email: email,
