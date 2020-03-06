@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 import StripeCheckout from "react-stripe-checkout";
 import {toast} from "react-toastify";
 import {useSelector,useDispatch} from "react-redux";
-import {deleteCartItem, removeAllCartItems} from "../../../actions";
+import {deleteCartItem, removeAllCartItems, resetAllFilters} from "../../../actions";
 
 toast.configure();
 
@@ -38,6 +38,7 @@ export default function CheckOut({history}) {
         if(result.status === "success") {
             toast("Success! Thanks for your purchase!", {type: 'success', autoClose: 3000});
             setTimeout( () => dispatch(removeAllCartItems()), 3000);
+            setTimeout( () => dispatch(resetAllFilters()), 3000);
             setTimeout( () => window.location.replace("/"), 3000);
         } 
         else {
