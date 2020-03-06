@@ -56,23 +56,33 @@ export const setProducts = products => {
   };
 };
 
-export const searchApiCall = url => {
-  let searchTerm = url.slice(28);
+export const searchApiCall = (searchTerm, method) => {
+  let url = "";
+  if (
+    searchTerm.length === 0 ||
+    searchTerm.toLowerCase() === "shoes" ||
+    searchTerm.toLowerCase() === "shoe"
+  ) {
+    url = "/search";
+  } else {
+    url = `/search/${searchTerm}`;
+  }
   return async dispatch => {
     try {
       const res = await fetch(url, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json"
-        }
+        method: "GET"
       });
       const result = await res.json();
       dispatch(setProducts(result));
-      if (searchTerm.length > 0) {
+      if (
+        (searchTerm.length === 0 && method === "search") ||
+        method !== "url" ||
+        method === "logo"
+      ) {
         dispatch(resetAllFilters());
       }
     } catch (err) {
-      console.log(err);
+      console.log("err", err);
     }
   };
 };

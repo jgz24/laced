@@ -14,7 +14,6 @@ export default function CheckOut({history}) {
     const dispatch = useDispatch();
     let cartItemKeys = Object.keys(cartItems);
 
-
     const handleBack = () => {
         history.goBack();
     }
@@ -49,7 +48,7 @@ export default function CheckOut({history}) {
     const getBalance = () => {
         let tempTotal = 0;
 
-        cartItemKeys.forEach(key => tempTotal += parseFloat(cartItems[key].Price));
+        cartItemKeys.forEach(key => tempTotal += (parseInt(cartItems[key].Price) * 100));
         
 
         return tempTotal;
@@ -58,9 +57,9 @@ export default function CheckOut({history}) {
     const getTax = () => {
         let tax = 0;
 
-        cartItemKeys.forEach(key => tax += parseFloat(cartItems[key].Price) * .0775);
+        cartItemKeys.forEach(key => tax += ((parseInt(cartItems[key].Price) * .0775) * 100));
 
-        return Math.round(tax*100)/100;
+        return tax;
     }
 
     let balance = getBalance();
@@ -111,9 +110,9 @@ export default function CheckOut({history}) {
                     </div>
                     <div className="totals">
                         <div className="cartItemFlex totalValues">
-                            <p>{`$${balance}`}</p>
-                            <p>{`$${tax}`}</p>
-                            <p>{`$${total}`}</p>
+                            <p>{`$${balance/100}`}</p>
+                            <p>{`$${Math.round((tax/100)*100)/100}`}</p>
+                            <p>{`$${Math.round((total/100)*100)/100}`}</p>
                         </div>
                         <div className="cartItemFlex">
                             <p>Balance: </p>
@@ -126,7 +125,7 @@ export default function CheckOut({history}) {
                                     token={handleToken} 
                                     billingAddress
                                     shippingAddress
-                                    amount={total*100}
+                                    amount={total}
                                     name={cartItems.length > 1 ? `${cartItems[cartItemKeys[0]].Name} and more!` : `${cartItems[cartItemKeys[0]].Name}`}
                         />
                     </div>

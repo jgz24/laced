@@ -15,18 +15,7 @@ function SearchBar({autocompleteArray, history}) {
     // Takes in all filter options other than
     // "Sort By"
     const handleSearch = async searchTerm => {
-      let url = "";
-      if (
-        searchTerm.length === 0 ||
-        searchTerm.toLowerCase() === "shoes" ||
-        searchTerm.toLowerCase() === "shoe"
-      ) {
-        url = "/search";
-      } else {
-        url = `/search/${searchTerm}`;
-      }
-
-      dispatch(searchApiCall(url));
+      dispatch(searchApiCall(searchTerm,"search"));
     }
 
     const handleChange = (event) => {

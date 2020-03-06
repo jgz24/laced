@@ -9,11 +9,9 @@ import rootReducer from "./reducers";
 import { Provider } from "react-redux";
 import { persistStore } from "redux-persist";
 
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
 export const store = createStore(
   rootReducer,
-  composeEnhancer(applyMiddleware(ReduxThunk))
+  compose(applyMiddleware(ReduxThunk))
 );
 
 export const persistor = persistStore(store);

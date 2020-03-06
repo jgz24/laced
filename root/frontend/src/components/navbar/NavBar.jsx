@@ -21,7 +21,7 @@ export default function NavBar() {
         <nav>
             <Link to="/">
                 <div>
-                    <button onClick={() => dispatch(searchApiCall("/search"))} className="logo"></button>
+                    <button onClick={() => dispatch(searchApiCall("",'logo'))} className="logo"></button>
                 </div>
             </Link>
             <SearchBar autocompleteArray={autocompleteArray}/>

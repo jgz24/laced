@@ -102,17 +102,19 @@ export default function Results() {
                 keys = keys.filter(key => key !== 'Price');
     
                 // If the only filter we have is price, then return now.
-                if(keys.length === 0) {
+                // Also return if no products match price filter.
+                if(keys.length === 0 || tempFilteredArray.length === 0) {
                     return tempFilteredArray;
                 }
             }
-    
+
             // If we filtered products by price, then use
             // those products to be filtered in the next steps.
             if(tempFilteredArray.length > 0) {
                 tempFilteredArray = handleGeneralFilters(tempFilteredArray,keys);
-            } else {
-                // Otherwise, filter the original products.
+            }
+            // Otherwise filter the original products.
+            else {
                 tempFilteredArray = handleGeneralFilters(products,keys);
             }
             

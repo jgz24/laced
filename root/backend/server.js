@@ -1,7 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const cors = require("cors");
 const path = require("path");
 require("dotenv/config");
 
@@ -16,7 +15,6 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 // Parse application/json
 app.use(bodyParser.json());
-// Disables cors errors
 
 // Serve all static files from build directory
 app.use(express.static(path.join(__dirname, "build")));

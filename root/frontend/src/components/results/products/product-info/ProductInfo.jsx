@@ -45,10 +45,7 @@ export default function ProductInfo({history, location}) {
         }
 
         fetch(url, {
-          method: "GET", 
-          headers: {
-              'Content-Type' : 'application/json'
-          }
+          method: "GET"
         })
           .then(res => res.json())
           .then(json => {

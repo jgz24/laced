@@ -16,27 +16,9 @@ export default function App() {
   // OR
   // Get shoes based on user input via URL enter press
   useEffect(() => {
-    // Look for individual shoes via search bar.
-    // Takes in all filter options other than
-    // "Sort By"
-    const handleSearch = async searchTerm => {
-      let url = "";
-      if (
-        searchTerm.length === 0 ||
-        searchTerm.toLowerCase() === "shoes" ||
-        searchTerm.toLowerCase() === "shoe"
-      ) {
-        url = "/search";
-      } else {
-        url = `/search/${searchTerm}`;
-      }
-
-      dispatch(searchApiCall(url));
-    };
-
     let searchTerm = window.location.search.slice(8);
 
-    handleSearch(searchTerm);
+    dispatch(searchApiCall(searchTerm, "url"));
   }, [dispatch]);
 
   return (
